@@ -1,6 +1,20 @@
 # 모바일 접속 안내
 
-같은 Wi‑Fi에 연결된 휴대폰에서 아래 주소를 연다.
+## 외부/폰 접속
+
+같은 Wi‑Fi가 아니어도 아래 공개 URL로 접속한다.
+
+```text
+https://imejaim.github.io/offspace-ai-office/
+```
+
+직접 대시보드:
+
+```text
+https://imejaim.github.io/offspace-ai-office/prototype/index-v3.html
+```
+
+## 사무실/같은 Wi‑Fi 로컬 접속
 
 ```text
 http://192.168.1.4:8790/
@@ -12,7 +26,7 @@ http://192.168.1.4:8790/
 http://192.168.1.4:8790/prototype/index-v3.html
 ```
 
-## 서버
+## 로컬 서버
 - LaunchAgent: `~/Library/LaunchAgents/com.offspace.ai-office-dashboard.plist`
 - 실행 스크립트: `~/.hermes/scripts/offspace-ai-office-server.sh`
 - 로그: `~/.hermes/logs/offspace-ai-office-dashboard.log`
