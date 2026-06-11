@@ -17,10 +17,12 @@
 /* readability fix: keep office labels usable and allow manual repositioning */
 .agent,.bubble{pointer-events:auto;cursor:grab;touch-action:none;user-select:none}
 .agent.dragging,.bubble.dragging{cursor:grabbing;filter:drop-shadow(0 16px 22px rgba(15,23,42,.20))}
-.bubble{max-width:190px;line-height:1.22}
-.bubble::after{content:"↕";margin-left:6px;color:#94a3b8;font-size:11px}
+#bubble-layer{inset:auto 30px 18px 30px;display:flex;flex-wrap:wrap;gap:8px;align-items:flex-end;justify-content:center;z-index:95;padding:10px 12px;border:1px solid rgba(15,23,42,.08);border-radius:18px;background:rgba(255,255,255,.78);backdrop-filter:blur(10px);box-shadow:0 10px 28px rgba(15,23,42,.10)}
+.bubble{position:static;max-width:210px;line-height:1.22;white-space:normal;cursor:default;box-shadow:0 6px 16px rgba(15,23,42,.08)}
+.bubble::before{content:attr(data-speaker);display:inline-block;margin-right:6px;color:#334155;font-weight:950}
+.bubble::after{content:""}
 .zone h3,.zone p{position:relative;z-index:80;background:rgba(255,255,255,.72);border-radius:8px;padding:1px 4px;margin-left:-4px}
-@media(max-width:640px){.bubble{max-width:128px;font-size:11px;padding:7px 9px}.bubble::after{display:none}}
+@media(max-width:640px){#bubble-layer{left:16px;right:16px;bottom:18px;max-height:112px;overflow:auto;justify-content:flex-start;padding:8px}.bubble{max-width:100%;font-size:11px;padding:7px 9px}.bubble::after{display:none}}
 </style>
 </head>
 <body>
@@ -88,22 +90,13 @@ function dragXY(e, idx){
  const wrap=document.querySelector('.office-wrap'); const maxX=(wrap?.clientWidth||900)-96, maxY=(wrap?.clientHeight||650)-96;
  return {x:clamp(base.x+off.x,6,maxX), y:clamp(base.y+off.y,6,maxY)};
 }
-function bubbleLaneXY(idx,total){
- const mobile=window.matchMedia('(max-width:640px)').matches;
- const wrap=document.querySelector('.office-wrap'); const w=wrap?.clientWidth||900, h=wrap?.clientHeight||650;
- const bw=mobile?130:190, gap=mobile?6:10;
- const cols=Math.max(1, Math.floor((w-12)/(bw+gap)));
- const col=idx%cols, row=Math.floor(idx/cols);
- const x=6+col*(bw+gap);
- const y=h-(mobile?42:48)-row*(mobile?40:44);
- return {x:clamp(x,6,w-bw-6), y:clamp(y,6,h-42)};
-}
+function speakerName(e){return CHAR[e.character]?.name||e.character}
 function render(){const state=snapshot(); const active=state.filter(e=>['active','parallel','blocked','error'].includes(e.status));
  document.getElementById('statusbar').innerHTML=state.map(e=>`<span class="pill ${e.status}">${CHAR[e.character]?.name||e.character}${e.clone_id?' '+e.clone_id:''} ${label(e.status)}</span>`).join('');
  const counts={business:0,internal:0,research:0,ops:0}; state.forEach(e=>{if(['active','parallel'].includes(e.status)) counts[e.space]=(counts[e.space]||0)+1});
  document.getElementById('space-panel').innerHTML=Object.entries(SPACES).map(([id,s])=>`<div class="spacecard"><span class="dot ${s.dot}"></span><div><strong>${s.label}</strong><small>${s.sub}</small></div><b>${counts[id]||0}</b></div>`).join('')+`<div><strong>현재 활성도 ${Math.min(100,Math.round(active.length/5*100))}%</strong><div class="meter"><b style="width:${Math.min(100,active.length/5*100)}%"></b></div></div>`;
  let slotCount={}; document.getElementById('agent-layer').innerHTML=state.map(e=>{const idx=slotCount[e.space]||0; slotCount[e.space]=idx+1; const xy=dragXY(e,idx); const c=CHAR[e.character]||{name:e.character,img:''}; return `<div class="agent" data-drag-key="${esc(key(e))}" data-status="${e.status}" data-clone="${e.clone_id?'true':'false'}" data-clone-label="${esc(e.clone_id||'')}" style="${xyToStyle(xy.x,xy.y)}"><img src="${c.img}" alt="${esc(c.name)}"><span class="name">${esc(c.name)}</span></div>`}).join('');
- slotCount={}; document.getElementById('bubble-layer').innerHTML=state.map((e,gidx)=>{const idx=slotCount[e.space]||0; slotCount[e.space]=idx+1; const b=bubbleLaneXY(gidx,state.length); return `<div class="bubble ${e.status}" data-drag-key="${esc(key(e))}" style="${xyToStyle(b.x,b.y)}">${esc(e.message)}</div>`}).join('');
+ document.getElementById('bubble-layer').innerHTML=state.map(e=>`<div class="bubble ${e.status}" data-speaker="${esc(speakerName(e)+':')}">${esc(e.message)}</div>`).join('');
  document.getElementById('report-panel').innerHTML=reports.map(r=>`<div class="report-card"><b>${esc(r.area)}</b><span>${esc(r.summary)}</span></div>`).join('');
  document.getElementById('decision-panel').textContent=decision;
  document.getElementById('queue-panel').innerHTML=state.map(e=>`<div class="job ${e.status}"><strong>${esc(CHAR[e.character]?.name||e.character)}: ${esc(e.task_title)}</strong><small>${esc(e.agent)} · ${esc(SPACES[e.space]?.label||e.space)}${e.clone_id?' · 분신 '+esc(e.clone_id):''}</small></div>`).join('');
