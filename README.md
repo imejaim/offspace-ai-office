@@ -31,9 +31,18 @@ http://127.0.0.1:8790/prototype/index-v3.html
 - 작업 이벤트 샘플 JSONL
 - 공유 설계 문서
 
+## 실시간 상태 반영
+
+GitHub Pages는 정적 호스팅이므로 맥미니가 2분마다 상태 JSON을 생성해 GitHub에 push하고, 브라우저는 60초마다 새 JSON을 읽습니다.
+
+- 데이터 파일: `data/office-status.json`
+- 생성 스크립트: `scripts/update_office_status.py`
+- 자동 push 스크립트: `scripts/update_and_push_status.sh`
+- LaunchAgent: `~/Library/LaunchAgents/com.offspace.ai-office-status-publisher.plist`
+- 로그: `~/.hermes/logs/offspace-ai-office-status-publisher.log`
+
 ## 다음 구현
 
-- 사업보고 JSON을 별도 파일로 분리해 자동 갱신
-- 실제 Hermes / Claude Code / Codex / Gemini 실행 이벤트를 `events/activity_events.jsonl`에 기록
-- 대시보드가 이벤트를 읽어서 캐릭터 상태를 자동 갱신
+- 실제 Hermes / Claude Code / Codex / Gemini 실행 이벤트를 `events/activity_events.jsonl`에 더 정교하게 기록
+- 사업보고 JSON을 업무별 파일로 분리해 누적 이력화
 - Cloudflare 도메인/접근제어/실시간 터널은 2단계에서 검토
