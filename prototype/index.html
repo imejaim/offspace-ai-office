@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Offspace AI Office</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #f8fafc; font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Segoe UI", sans-serif; color: #111827; }
+    .app { width: 1280px; min-height: 720px; margin: 0 auto; padding: 28px 42px; position: relative; }
+    .top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; }
+    h1 { margin: 0; font-size: 34px; letter-spacing: -0.04em; }
+    .subtitle { margin-top: 8px; color: #64748b; font-size: 17px; }
+    .report { background: #dcfce7; color: #166534; border: 1px solid #86efac; border-radius: 18px; padding: 14px 18px; font-weight: 800; box-shadow: 0 12px 28px rgba(34,197,94,.14); }
+    .grid { display: grid; grid-template-columns: 274px 1fr 274px; gap: 22px; }
+    .panel { background: #fff; border: 1px solid #e2e8f0; border-radius: 24px; box-shadow: 0 16px 40px rgba(15,23,42,.08); padding: 24px; min-height: 535px; }
+    .panel h2 { margin: 0 0 22px; font-size: 23px; letter-spacing: -0.03em; }
+    .space { display: flex; align-items: center; gap: 10px; padding: 13px 0; font-size: 17px; color: #334155; }
+    .dot { width: 11px; height: 11px; border-radius: 99px; display: inline-block; }
+    .green { background: #22c55e; } .yellow { background: #f59e0b; } .blue { background: #3b82f6; } .purple { background: #a855f7; }
+    .progress { height: 16px; background: #e2e8f0; border-radius: 999px; overflow: hidden; margin: 30px 0 14px; }
+    .progress b { display: block; height: 100%; width: 62%; background: #22c55e; border-radius: 999px; }
+    .office { position: relative; background: #fff7ed; overflow: hidden; }
+    .wall-left { position: absolute; left: 88px; top: 78px; width: 360px; height: 18px; background: #60a5fa; }
+    .wall-right { position: absolute; left: 448px; top: 78px; width: 96px; height: 214px; background: #38bdf8; transform: skewY(64deg); transform-origin: 0 0; }
+    .floor { position: absolute; left: 88px; top: 96px; width: 435px; height: 230px; background: repeating-linear-gradient(35deg, #fffdf6 0 28px, #ead6ba 29px 31px, #fffdf6 32px 58px), repeating-linear-gradient(145deg, transparent 0 28px, rgba(220,170,120,.45) 29px 31px, transparent 32px 58px); clip-path: polygon(0 0, 82% 0, 100% 100%, 18% 100%); border: 10px solid #7f1d1d; }
+    .desk { position: absolute; border-radius: 4px; color: #fff; font-weight: 800; padding: 18px; font-size: 14px; box-shadow: inset 0 -8px rgba(0,0,0,.12); }
+    .d1 { left: 150px; top: 160px; width: 130px; height: 62px; background: #70452f; }
+    .d2 { left: 320px; top: 158px; width: 140px; height: 62px; background: #4b5563; }
+    .d3 { left: 235px; top: 255px; width: 145px; height: 62px; background: #6d28d9; }
+    .d4 { left: 390px; top: 262px; width: 125px; height: 58px; background: #14532d; }
+    .agent { position: absolute; width: 82px; text-align: center; transition: .3s; }
+    .agent img { width: 76px; height: 84px; object-fit: contain; image-rendering: pixelated; filter: drop-shadow(0 8px 0 rgba(15,23,42,.14)); }
+    .agent .name { margin-top: 2px; font-size: 14px; font-weight: 900; color: #1f2937; background: rgba(255,255,255,.8); border-radius: 999px; padding: 2px 8px; display: inline-block; }
+    .active img { animation: work-bounce .8s infinite steps(2); }
+    .clone { opacity: .52; transform: scale(.82); }
+    .clone::after { content: attr(data-badge); position: absolute; right: 4px; top: 2px; background: #111827; color: #fff; border-radius: 999px; padding: 2px 7px; font-size: 12px; font-weight: 900; }
+    .hermes { left: 225px; top: 342px; } .hermes2 { left: 322px; top: 246px; }
+    .claude { left: 145px; top: 232px; } .codex { left: 432px; top: 230px; } .gemini { left: 290px; top: 344px; }
+    .bubble { position: absolute; background: white; border: 2px solid #334155; border-radius: 18px; padding: 8px 13px; font-size: 14px; font-weight: 700; box-shadow: 0 4px 0 rgba(15,23,42,.12); }
+    .b1 { left: 320px; top: 380px; } .b2 { left: 118px; top: 198px; } .b3 { left: 420px; top: 198px; } .b4 { left: 258px; top: 306px; }
+    .queue { display: grid; gap: 14px; }
+    .job { border-radius: 14px; padding: 14px 15px; font-size: 15px; font-weight: 800; position: relative; }
+    .job small { display: block; margin-top: 5px; color: #64748b; font-weight: 600; }
+    .job.active::before { content: ""; width: 10px; height: 10px; border-radius: 999px; background: #22c55e; position: absolute; right: 14px; top: 15px; animation: pulse 1s infinite; }
+    .j1 { background: #ecfdf5; color: #065f46; } .j2 { background: #eef2ff; color: #3730a3; } .j3 { background: #fef3c7; color: #92400e; } .j4 { background: #fce7f3; color: #9d174d; }
+    .rule { margin-top: 26px; color: #64748b; line-height: 1.85; font-size: 15px; }
+    @keyframes work-bounce { 0% { transform: translateY(0); } 50% { transform: translateY(-8px); } 100% { transform: translateY(0); } }
+    @keyframes pulse { 0%,100% { opacity: .35; transform: scale(.8); } 50% { opacity: 1; transform: scale(1.25); } }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <section class="top">
+      <div>
+        <h1>Offspace AI Office</h1>
+        <div class="subtitle">대기 대시보드만 보면 누가 일하는지 바로 알 수 있게 만드는 C안 프로토타입</div>
+      </div>
+      <div class="report">현재: 허사장 작업중 · 코부장 호출 대기</div>
+    </section>
+    <section class="grid">
+      <aside class="panel">
+        <h2>업무 공간</h2>
+        <div class="space"><span class="dot green"></span>Business Projects</div>
+        <div class="space"><span class="dot yellow"></span>Internal Tools</div>
+        <div class="space"><span class="dot blue"></span>R&D References</div>
+        <div class="space"><span class="dot purple"></span>Ops / Automations</div>
+        <div class="progress"><b></b></div>
+        <div style="color:#64748b;font-size:15px;line-height:1.8">캐릭터 이동 = 실제 작업중<br/>분신 = 병렬 작업<br/>말풍선 = 지금 하는 일</div>
+      </aside>
+      <section class="panel office">
+        <h2>사무실</h2>
+        <div class="wall-left"></div><div class="wall-right"></div><div class="floor"></div>
+        <div class="desk d1">Business</div><div class="desk d2">Internal</div><div class="desk d3">Research</div><div class="desk d4">Ops</div>
+        <div class="agent hermes active"><img src="../assets/characters/Heo-sajang.svg"><span class="name">허사장</span></div>
+        <div class="agent hermes2 active clone" data-badge="²"><img src="../assets/characters/Heo-sajang.svg"><span class="name">허사장</span></div>
+        <div class="agent claude"><img src="../assets/characters/Ko-bujang.svg"><span class="name">코부장</span></div>
+        <div class="agent codex"><img src="../assets/characters/Oh-gwajang.svg"><span class="name">오과장</span></div>
+        <div class="agent gemini"><img src="../assets/characters/Jem-daeri.svg"><span class="name">젬대리</span></div>
+        <div class="bubble b1">전체 구조 작업중</div>
+        <div class="bubble b2">Claude Code 대기</div>
+        <div class="bubble b3">Codex 대기</div>
+        <div class="bubble b4">조사 대기</div>
+      </section>
+      <aside class="panel">
+        <h2>실시간 큐</h2>
+        <div class="queue">
+          <div class="job j1 active">허사장: 대시보드 프로토타입<small>Hermes · active · 분신 1</small></div>
+          <div class="job j2">코부장: 구현 호출 대기<small>Claude Code · idle</small></div>
+          <div class="job j3">오과장: CLI 실행 대기<small>Codex CLI · idle</small></div>
+          <div class="job j4">젬대리: 조사 대기<small>Gemini/Agy · idle</small></div>
+        </div>
+        <div class="rule">• active: 캐릭터가 움직임<br/>• parallel: 분신 생성<br/>• done: 분신 합체/소멸<br/>• blocked: 빨간 말풍선</div>
+      </aside>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,4 @@
+{"ts":"2026-06-10T11:50:00+09:00","agent":"hermes","character":"허사장","status":"active","space":"Executive Overview","task":"C안 대시보드 구조 설계","message":"전체 그림 정리중"}
+{"ts":"2026-06-10T11:50:10+09:00","agent":"claude-code","character":"코부장","status":"idle","space":"Internal Tools","task":"구현 대기","message":"멘션 호출 대기"}
+{"ts":"2026-06-10T11:50:20+09:00","agent":"codex-cli","character":"오과장","status":"idle","space":"Ops / Automations","task":"CLI 작업 대기","message":"출동 준비"}
+{"ts":"2026-06-10T11:50:30+09:00","agent":"gemini-or-agy","character":"젬대리","status":"idle","space":"R&D References","task":"조사 작업 대기","message":"자료 조사 준비"}
