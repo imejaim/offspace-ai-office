@@ -1,7 +1,7 @@
 {
   "source": "mac-mini-status-script",
-  "updated_at": "2026-06-11T21:14:56.775113+09:00",
-  "updated_at_kst": "2026-06-11 21:14:56 KST",
+  "updated_at": "2026-06-11T21:16:59.735607+09:00",
+  "updated_at_kst": "2026-06-11 21:16:59 KST",
   "refresh_hint_seconds": 120,
   "decision": "대표님 결정 필요: Offspace 제품 우선순위 확정 / BaToo EC2 점검 승인",
   "reports": [
@@ -29,7 +29,7 @@
   "events": [
     {
       "event_id": "live_hermes",
-      "ts": "2026-06-11T21:14:57.002456+09:00",
+      "ts": "2026-06-11T21:16:59.969108+09:00",
       "source": "hermes-agent",
       "agent": "hermes",
       "character": "heo-sajang",
@@ -44,7 +44,7 @@
     },
     {
       "event_id": "live_claude",
-      "ts": "2026-06-11T21:14:57.002468+09:00",
+      "ts": "2026-06-11T21:16:59.969119+09:00",
       "source": "claude-code",
       "agent": "claude-code",
       "character": "ko-bujang",
@@ -59,7 +59,7 @@
     },
     {
       "event_id": "live_codex",
-      "ts": "2026-06-11T21:14:57.002469+09:00",
+      "ts": "2026-06-11T21:16:59.969121+09:00",
       "source": "codex-cli",
       "agent": "codex-cli",
       "character": "oh-gwajang",
@@ -67,14 +67,14 @@
       "space": "ops",
       "task_id": "codex_cli",
       "task_title": "오과장 상태",
-      "message": "오과장 대기 · 마지막 토큰 10일 전",
+      "message": "오과장 대기 · 마지막 토큰 11일 전",
       "clone_id": null,
       "progress": 0,
       "severity": "normal"
     },
     {
       "event_id": "live_agy",
-      "ts": "2026-06-11T21:14:57.002472+09:00",
+      "ts": "2026-06-11T21:16:59.969124+09:00",
       "source": "antigravity/agy-cli",
       "agent": "agy-cli",
       "character": "jem-daeri",
@@ -89,7 +89,7 @@
     },
     {
       "event_id": "live_local_server",
-      "ts": "2026-06-11T21:14:57.002476+09:00",
+      "ts": "2026-06-11T21:16:59.969127+09:00",
       "source": "mac-mini",
       "agent": "python-http",
       "character": "heo-sajang",
