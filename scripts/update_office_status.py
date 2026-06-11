@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 import subprocess
 from datetime import datetime
 from pathlib import Path
@@ -29,6 +30,12 @@ def has_proc(lines: list[str], needles: list[str]) -> bool:
     return any(all(n.lower() in line.lower() for n in needles) for line in lines)
 
 
+def matching_proc(lines: list[str], pattern: str) -> bool:
+    rx = re.compile(pattern, re.I)
+    ignore = ("update_office_status.py", "update_and_push_status.sh", "grep", "egrep")
+    return any(rx.search(line) and not any(x in line for x in ignore) for line in lines)
+
+
 def event(event_id: str, source: str, agent: str, character: str, status: str, space: str, task_id: str, task_title: str, message: str, progress: float = 0, clone_id=None):
     return {
         "event_id": event_id,
@@ -50,12 +57,13 @@ def event(event_id: str, source: str, agent: str, character: str, status: str, s
 def main() -> None:
     now = datetime.now(KST)
     lines = proc_lines()
-    hermes_active = has_proc(lines, ["hermes"]) or has_proc(lines, ["offs_hermes"])
-    claude_telegram = has_proc(lines, ["claude", "plugin:telegram"])
-    claude_cli = has_proc(lines, ["claude", "-p"])
-    codex_active = has_proc(lines, ["codex"])
-    gemini_active = has_proc(lines, ["gemini"])
-    server_active = has_proc(lines, ["8790"]) or bool(run(["/usr/sbin/lsof", "-nP", "-iTCP:8790", "-sTCP:LISTEN"]).strip())
+    hermes_active = matching_proc(lines, r"(/|\b)hermes(\s|$)|offs_hermes|hermes-agent")
+    claude_telegram = matching_proc(lines, r"(/|\b)claude(\s|$).*plugin:telegram")
+    claude_cli = matching_proc(lines, r"(/|\b)claude(\s|$).*\s-p(\s|$)")
+    codex_active = matching_proc(lines, r"(/|\b)(codex|codex-cli)(\s|$)")
+    # Treat Antigravity/Gemini browser profile as the Gemini/젬대리 workspace being open, not necessarily an active CLI task.
+    gemini_active = matching_proc(lines, r"(/|\b)gemini(\s|$)|antigravity-browser-profile")
+    server_active = bool(run(["/usr/sbin/lsof", "-nP", "-iTCP:8790", "-sTCP:LISTEN"]).strip())
 
     events = [
         event(
@@ -103,7 +111,7 @@ def main() -> None:
             "research",
             "gemini_cli",
             "젬대리 상태",
-            "젬대리 조사중" if gemini_active else "젬대리 대기",
+            "젬대리/Antigravity 열림" if gemini_active else "젬대리 대기",
             0.5 if gemini_active else 0,
         ),
     ]

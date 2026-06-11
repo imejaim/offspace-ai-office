@@ -1,7 +1,7 @@
 {
   "source": "mac-mini-status-script",
-  "updated_at": "2026-06-11T11:06:35.689542+09:00",
-  "updated_at_kst": "2026-06-11 11:06:35 KST",
+  "updated_at": "2026-06-11T11:06:52.321415+09:00",
+  "updated_at_kst": "2026-06-11 11:06:52 KST",
   "refresh_hint_seconds": 120,
   "decision": "대표님 결정 필요: Offspace 제품 우선순위 확정 / BaToo EC2 점검 승인",
   "reports": [
@@ -29,7 +29,7 @@
   "events": [
     {
       "event_id": "live_hermes",
-      "ts": "2026-06-11T11:06:35.785423+09:00",
+      "ts": "2026-06-11T11:06:52.467106+09:00",
       "source": "hermes-agent",
       "agent": "hermes",
       "character": "heo-sajang",
@@ -44,22 +44,22 @@
     },
     {
       "event_id": "live_claude",
-      "ts": "2026-06-11T11:06:35.785470+09:00",
+      "ts": "2026-06-11T11:06:52.467142+09:00",
       "source": "claude-code",
       "agent": "claude-code",
       "character": "ko-bujang",
-      "status": "active",
+      "status": "idle",
       "space": "internal",
       "task_id": "claude_code",
       "task_title": "코부장 상태",
-      "message": "코부장 CLI 작업중",
+      "message": "코부장 봇 대기",
       "clone_id": null,
-      "progress": 0.55,
+      "progress": 0,
       "severity": "normal"
     },
     {
       "event_id": "live_codex",
-      "ts": "2026-06-11T11:06:35.785473+09:00",
+      "ts": "2026-06-11T11:06:52.467144+09:00",
       "source": "codex-cli",
       "agent": "codex-cli",
       "character": "oh-gwajang",
@@ -74,7 +74,7 @@
     },
     {
       "event_id": "live_gemini",
-      "ts": "2026-06-11T11:06:35.785475+09:00",
+      "ts": "2026-06-11T11:06:52.467146+09:00",
       "source": "gemini-cli",
       "agent": "gemini-cli",
       "character": "jem-daeri",
@@ -82,14 +82,14 @@
       "space": "research",
       "task_id": "gemini_cli",
       "task_title": "젬대리 상태",
-      "message": "젬대리 조사중",
+      "message": "젬대리/Antigravity 열림",
       "clone_id": null,
       "progress": 0.5,
       "severity": "normal"
     },
     {
       "event_id": "live_local_server",
-      "ts": "2026-06-11T11:06:35.785479+09:00",
+      "ts": "2026-06-11T11:06:52.467149+09:00",
       "source": "mac-mini",
       "agent": "python-http",
       "character": "heo-sajang",
