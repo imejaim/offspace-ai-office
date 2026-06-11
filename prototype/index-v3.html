@@ -13,6 +13,14 @@
 #agent-layer,#bubble-layer,#trail-layer{position:absolute;inset:0;pointer-events:none}.agent{position:absolute;width:118px;text-align:center;z-index:30;transition:left .45s ease,top .45s ease,transform .35s ease,opacity .35s ease}.agent img{width:104px;height:116px;object-fit:contain;image-rendering:pixelated;filter:drop-shadow(0 0 1px #fff) drop-shadow(0 12px 14px rgba(15,23,42,.23))}.agent .name{display:inline-flex;align-items:center;gap:5px;margin-top:-2px;background:rgba(255,255,255,.92);border:1px solid rgba(15,23,42,.08);border-radius:999px;padding:4px 9px;font-size:13px;font-weight:950;box-shadow:0 5px 12px rgba(15,23,42,.08)}.agent[data-status="active"]::before,.agent[data-status="parallel"]::before{content:"";position:absolute;left:18px;top:12px;width:82px;height:82px;border-radius:50%;background:rgba(24,184,122,.18);box-shadow:0 0 0 10px rgba(24,184,122,.08);z-index:-1;animation:ring 1.4s infinite}.agent[data-status="active"] img,.agent[data-status="parallel"] img{animation:work 900ms steps(2) infinite}.agent[data-status="idle"]{opacity:.96}.agent[data-status="blocked"]::before,.agent[data-status="error"]::before{content:"";position:absolute;left:18px;top:12px;width:82px;height:82px;border-radius:50%;background:rgba(239,68,68,.18);box-shadow:0 0 0 10px rgba(239,68,68,.08);z-index:-1}.agent[data-status="done"]{transform:scale(.88);opacity:.78}.agent[data-clone="true"]{transform:scale(.86);opacity:.84}.agent[data-clone="true"]::after{content:attr(data-clone-label);position:absolute;right:15px;top:6px;background:#2563eb;color:#fff;border-radius:999px;padding:3px 8px;font-size:12px;font-weight:950}.bubble{position:absolute;z-index:40;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:18px;padding:9px 12px;font-weight:900;font-size:13px;box-shadow:0 10px 24px rgba(15,23,42,.10)}.bubble.active,.bubble.parallel{background:#e9fbf3;border-color:#98ebc6;color:#08704a}.bubble.idle{color:#64748b}.bubble.blocked,.bubble.error{background:#fef2f2;border-color:#fecaca;color:#991b1b}.trail{position:absolute;z-index:25;border:2px dashed rgba(47,124,246,.28);border-radius:999px;pointer-events:none}
 .report{display:grid;gap:10px;margin-bottom:16px}.report-card{border:1px solid var(--line);background:linear-gradient(180deg,#fff,#fbfdff);border-radius:18px;padding:12px 13px;box-shadow:0 6px 18px rgba(15,23,42,.04)}.report-card b{display:block;font-size:13px;margin-bottom:4px}.report-card span{display:block;color:#64748b;font-size:12px;line-height:1.38}.decision{margin:8px 0 16px;border:1px solid #bbf7d0;background:#f0fdf4;color:#065f46;border-radius:18px;padding:12px 13px;font-size:13px;font-weight:950}.queue{display:grid;gap:12px}.job{position:relative;border-radius:18px;padding:14px 15px;border:1px solid var(--line);background:#fff;box-shadow:0 6px 18px rgba(15,23,42,.04)}.job strong{display:block;font-size:15px;max-width:210px}.job small{display:block;margin-top:5px;color:#64748b;line-height:1.35}.job::after{position:absolute;right:12px;top:12px;border-radius:999px;padding:4px 8px;font-size:11px;font-weight:950}.job.active,.job.parallel{border-color:#98ebc6;background:#ecfdf5}.job.active::after{content:"작업중";background:var(--green);color:#fff}.job.parallel::after{content:"분신";background:#2563eb;color:#fff}.job.idle::after{content:"대기";background:#eef2f7;color:#64748b}.job.blocked::after,.job.error::after{content:"막힘";background:#ef4444;color:#fff}.controls{margin-top:16px;border-top:1px solid var(--line);padding-top:14px;display:grid;gap:8px}.controls button{border:1px solid var(--line);border-radius:14px;background:#fff;padding:10px 12px;font-weight:900;cursor:pointer}.controls button:hover{background:#f8fafc}.schema{margin-top:14px;color:#596575;font-size:12px;line-height:1.55}.schema code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#f1f5f9;padding:2px 5px;border-radius:5px}
 @keyframes pulse{0%,100%{transform:scale(.85);opacity:.55}50%{transform:scale(1.15);opacity:1}}@keyframes ring{0%,100%{transform:scale(.92);opacity:.55}50%{transform:scale(1.08);opacity:1}}@keyframes work{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}@media(max-width:1180px){.layout{grid-template-columns:1fr}.office-wrap{height:680px}.app{padding:18px}}@media(max-width:640px){body{background:#f6f8fb}.app{padding:12px;max-width:100vw}.top{display:block;margin-bottom:12px}.eyebrow{font-size:11px;padding:6px 9px}h1{font-size:30px;letter-spacing:-1px;margin:10px 0 6px}.subtitle{font-size:14px}.statusbar{justify-content:flex-start;margin-top:12px;gap:6px}.pill{font-size:12px;padding:7px 9px}.layout{display:flex;flex-direction:column;gap:12px}.panel{border-radius:20px;padding:15px;box-shadow:0 8px 24px rgba(22,33,55,.08)}.spacecard{grid-template-columns:8px 1fr auto;padding:10px 11px}.office-panel{padding:0;order:-1}.office-head{height:auto;padding:13px 15px}.office-title{font-size:17px}.live{font-size:12px}.office-wrap{height:760px;padding:12px;background:#fff9ef}.room{left:10px;right:10px;top:14px;bottom:12px;border-radius:22px}.backwall{height:92px}.window{top:18px;width:72px;height:38px;border-width:2px}.w1{left:18px}.w2{left:104px}.w3{right:18px}.board{display:none}.floor{top:92px;background:linear-gradient(135deg,rgba(216,151,86,.10) 25%,transparent 25%) 0 0/30px 30px,#fff5e7}.zones{left:14px;right:14px;top:112px;bottom:18px;display:grid;grid-template-columns:1fr;grid-template-rows:repeat(4,1fr);gap:10px}.zone{border-radius:18px;padding:12px}.zone h3{font-size:15px}.zone p{font-size:11px}.furniture{transform:scale(.72);transform-origin:bottom right;opacity:.75}.agent{width:82px}.agent img{width:74px;height:84px}.agent .name{font-size:11px;padding:3px 7px}.agent[data-status="active"]::before,.agent[data-status="parallel"]::before,.agent[data-status="blocked"]::before,.agent[data-status="error"]::before{left:12px;top:8px;width:58px;height:58px}.bubble{max-width:118px;font-size:11px;padding:6px 8px;border-radius:13px}.job strong{max-width:235px}.controls{grid-template-columns:1fr 1fr}.controls button{font-size:12px;padding:9px 8px}}
+
+/* readability fix: keep office labels usable and allow manual repositioning */
+.agent,.bubble{pointer-events:auto;cursor:grab;touch-action:none;user-select:none}
+.agent.dragging,.bubble.dragging{cursor:grabbing;filter:drop-shadow(0 16px 22px rgba(15,23,42,.20))}
+.bubble{max-width:190px;line-height:1.22}
+.bubble::after{content:"↕";margin-left:6px;color:#94a3b8;font-size:11px}
+.zone h3,.zone p{position:relative;z-index:80;background:rgba(255,255,255,.72);border-radius:8px;padding:1px 4px;margin-left:-4px}
+@media(max-width:640px){.bubble{max-width:128px;font-size:11px;padding:7px 9px}.bubble::after{display:none}}
 </style>
 </head>
 <body>
@@ -32,19 +40,20 @@ const CHAR={
  'jem-daeri':{name:'젬대리',img:'../assets/characters/transparent/Jem-daeri.svg'}
 };
 const SPACES={business:{label:'Business Projects',sub:'전략·대표님 의사결정',dot:'business-dot'},internal:{label:'Internal Tools',sub:'코드·자동화·구현',dot:'internal-dot'},research:{label:'R&D References',sub:'조사·자료·요약',dot:'research-dot'},ops:{label:'Ops / Automations',sub:'상태감시·운영 체크',dot:'ops-dot'}};
+// Slots are intentionally lower/right than room headings so labels remain readable.
 const POS_DESKTOP={
- business:[{left:118,top:255},{left:286,top:250},{left:170,top:320}],
- internal:[{right:118,top:255},{right:270,top:250},{right:185,top:320}],
- research:[{right:105,bottom:65},{right:240,bottom:80},{right:170,bottom:160}],
- ops:[{left:112,bottom:70},{left:250,bottom:78},{left:170,bottom:160}]
+ business:[{left:116,top:242},{left:282,top:242},{left:198,top:314}],
+ internal:[{right:116,top:242},{right:270,top:242},{right:198,top:314}],
+ research:[{right:110,bottom:56},{right:250,bottom:56},{right:180,bottom:138}],
+ ops:[{left:114,bottom:56},{left:250,bottom:56},{left:180,bottom:138}]
 };
 const POS_MOBILE={
- business:[{left:36,top:180},{left:125,top:180},{left:214,top:180}],
- internal:[{left:36,top:335},{left:125,top:335},{left:214,top:335}],
- research:[{left:36,top:490},{left:125,top:490},{left:214,top:490}],
- ops:[{left:36,top:645},{left:125,top:645},{left:214,top:645}]
+ business:[{left:36,top:210},{left:128,top:210},{left:220,top:210}],
+ internal:[{left:36,top:365},{left:128,top:365},{left:220,top:365}],
+ research:[{left:36,top:520},{left:128,top:520},{left:220,top:520}],
+ ops:[{left:36,top:675},{left:128,top:675},{left:220,top:675}]
 };
-function currentPos(){return window.matchMedia('(max-width:640px)').matches?POS_MOBILE:POS_DESKTOP}
+const dragOffsets=JSON.parse(localStorage.getItem('offspace-office-drag-v1')||'{}');
 let events=[
  {event_id:'fallback_001',ts:new Date().toISOString(),source:'hermes-agent',agent:'hermes',character:'heo-sajang',status:'active',space:'business',task_id:'dashboard_v3',task_title:'상태 엔진 설계',message:'v3 구조 주도중',clone_id:null,progress:.62,severity:'normal'},
  {event_id:'fallback_002',ts:new Date().toISOString(),source:'hermes-agent',agent:'hermes',character:'heo-sajang',status:'parallel',space:'internal',task_id:'browser_qa',task_title:'브라우저 검증',message:'분신으로 화면 점검',clone_id:'2',progress:.35,severity:'normal'},
@@ -61,26 +70,62 @@ let reports=[
 ];
 let decision='대표님 결정 필요: 제품 우선순위와 BaToo EC2 점검 여부';
 let lastDataStamp='상태 데이터 로딩 중';
+function currentPos(){return window.matchMedia('(max-width:640px)').matches?POS_MOBILE:POS_DESKTOP}
 function key(e){return `${e.character}:${e.clone_id||'main'}`}
 function snapshot(){const m=new Map(); for(const e of events) m.set(key(e),e); return [...m.values()].filter(e=>e.status!=='done' || Date.now()-new Date(e.ts).getTime()<2500)}
-function stylePos(pos){return Object.entries(pos).map(([k,v])=>`${k}:${v}px`).join(';')}
 function esc(s){return String(s ?? '').replace(/[&<>"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]))}
-function render(){const state=snapshot(); const POS=currentPos(); const active=state.filter(e=>['active','parallel','blocked','error'].includes(e.status));
+function posToXY(pos, elW=118, elH=126){
+ const wrap=document.querySelector('.office-wrap'); const w=wrap?.clientWidth||900, h=wrap?.clientHeight||650;
+ const x=pos.left!==undefined?pos.left:w-(pos.right||0)-elW;
+ const y=pos.top!==undefined?pos.top:h-(pos.bottom||0)-elH;
+ return {x,y};
+}
+function xyToStyle(x,y){return `left:${Math.round(x)}px;top:${Math.round(y)}px`}
+function clamp(n,min,max){return Math.max(min,Math.min(max,n))}
+function baseAgentXY(e, idx){const POS=currentPos(); const pos=POS[e.space]?.[idx]||POS[e.space][0]; return posToXY(pos,118,126)}
+function dragXY(e, idx){
+ const base=baseAgentXY(e,idx); const off=dragOffsets[key(e)]||{x:0,y:0};
+ const wrap=document.querySelector('.office-wrap'); const maxX=(wrap?.clientWidth||900)-96, maxY=(wrap?.clientHeight||650)-96;
+ return {x:clamp(base.x+off.x,6,maxX), y:clamp(base.y+off.y,6,maxY)};
+}
+function bubbleLaneXY(idx,total){
+ const mobile=window.matchMedia('(max-width:640px)').matches;
+ const wrap=document.querySelector('.office-wrap'); const w=wrap?.clientWidth||900, h=wrap?.clientHeight||650;
+ const bw=mobile?130:190, gap=mobile?6:10;
+ const cols=Math.max(1, Math.floor((w-12)/(bw+gap)));
+ const col=idx%cols, row=Math.floor(idx/cols);
+ const x=6+col*(bw+gap);
+ const y=h-(mobile?42:48)-row*(mobile?40:44);
+ return {x:clamp(x,6,w-bw-6), y:clamp(y,6,h-42)};
+}
+function render(){const state=snapshot(); const active=state.filter(e=>['active','parallel','blocked','error'].includes(e.status));
  document.getElementById('statusbar').innerHTML=state.map(e=>`<span class="pill ${e.status}">${CHAR[e.character]?.name||e.character}${e.clone_id?' '+e.clone_id:''} ${label(e.status)}</span>`).join('');
  const counts={business:0,internal:0,research:0,ops:0}; state.forEach(e=>{if(['active','parallel'].includes(e.status)) counts[e.space]=(counts[e.space]||0)+1});
  document.getElementById('space-panel').innerHTML=Object.entries(SPACES).map(([id,s])=>`<div class="spacecard"><span class="dot ${s.dot}"></span><div><strong>${s.label}</strong><small>${s.sub}</small></div><b>${counts[id]||0}</b></div>`).join('')+`<div><strong>현재 활성도 ${Math.min(100,Math.round(active.length/5*100))}%</strong><div class="meter"><b style="width:${Math.min(100,active.length/5*100)}%"></b></div></div>`;
- let slotCount={}; document.getElementById('agent-layer').innerHTML=state.map(e=>{const idx=slotCount[e.space]||0; slotCount[e.space]=idx+1; const pos=POS[e.space]?.[idx]||POS[e.space][0]; const c=CHAR[e.character]||{name:e.character,img:''}; return `<div class="agent" data-status="${e.status}" data-clone="${e.clone_id?'true':'false'}" data-clone-label="${esc(e.clone_id||'')}" style="${stylePos(pos)}"><img src="${c.img}" alt="${esc(c.name)}"><span class="name">${esc(c.name)}</span></div>`}).join('');
- slotCount={}; document.getElementById('bubble-layer').innerHTML=state.map(e=>{const idx=slotCount[e.space]||0; slotCount[e.space]=idx+1; const pos=POS[e.space]?.[idx]||POS[e.space][0]; const left=pos.left!==undefined?pos.left+24:null; const right=pos.right!==undefined?pos.right+24:null; const top=pos.top!==undefined?Math.max(60,pos.top-16):null; const bottom=pos.bottom!==undefined?pos.bottom+118:null; let p={}; if(left!==null)p.left=left;if(right!==null)p.right=right;if(top!==null)p.top=top;if(bottom!==null)p.bottom=bottom; return `<div class="bubble ${e.status}" style="${stylePos(p)}">${esc(e.message)}</div>`}).join('');
+ let slotCount={}; document.getElementById('agent-layer').innerHTML=state.map(e=>{const idx=slotCount[e.space]||0; slotCount[e.space]=idx+1; const xy=dragXY(e,idx); const c=CHAR[e.character]||{name:e.character,img:''}; return `<div class="agent" data-drag-key="${esc(key(e))}" data-status="${e.status}" data-clone="${e.clone_id?'true':'false'}" data-clone-label="${esc(e.clone_id||'')}" style="${xyToStyle(xy.x,xy.y)}"><img src="${c.img}" alt="${esc(c.name)}"><span class="name">${esc(c.name)}</span></div>`}).join('');
+ slotCount={}; document.getElementById('bubble-layer').innerHTML=state.map((e,gidx)=>{const idx=slotCount[e.space]||0; slotCount[e.space]=idx+1; const b=bubbleLaneXY(gidx,state.length); return `<div class="bubble ${e.status}" data-drag-key="${esc(key(e))}" style="${xyToStyle(b.x,b.y)}">${esc(e.message)}</div>`}).join('');
  document.getElementById('report-panel').innerHTML=reports.map(r=>`<div class="report-card"><b>${esc(r.area)}</b><span>${esc(r.summary)}</span></div>`).join('');
  document.getElementById('decision-panel').textContent=decision;
  document.getElementById('queue-panel').innerHTML=state.map(e=>`<div class="job ${e.status}"><strong>${esc(CHAR[e.character]?.name||e.character)}: ${esc(e.task_title)}</strong><small>${esc(e.agent)} · ${esc(SPACES[e.space]?.label||e.space)}${e.clone_id?' · 분신 '+esc(e.clone_id):''}</small></div>`).join('');
  document.getElementById('data-stamp').textContent=lastDataStamp;
+ installDragHandlers();
 }
 function label(s){return ({active:'작업중',parallel:'분신작업',idle:'대기',blocked:'막힘',error:'오류',done:'완료'}[s]||s)}
 function push(e){events.push({...e,event_id:'evt_'+Math.random().toString(16).slice(2),ts:new Date().toISOString()}); render();}
+function installDragHandlers(){document.querySelectorAll('[data-drag-key]').forEach(el=>{
+ if(el.dataset.dragReady) return; el.dataset.dragReady='1';
+ el.addEventListener('pointerdown',ev=>{
+   const k=el.dataset.dragKey; const start={x:ev.clientX,y:ev.clientY}; const init=dragOffsets[k]||{x:0,y:0};
+   el.classList.add('dragging'); el.setPointerCapture?.(ev.pointerId);
+   const move=mv=>{dragOffsets[k]={x:init.x+mv.clientX-start.x,y:init.y+mv.clientY-start.y}; render();};
+   const up=()=>{el.classList.remove('dragging'); localStorage.setItem('offspace-office-drag-v1',JSON.stringify(dragOffsets)); window.removeEventListener('pointermove',move); window.removeEventListener('pointerup',up);};
+   window.addEventListener('pointermove',move); window.addEventListener('pointerup',up,{once:true}); ev.preventDefault();
+ });
+});}
 async function loadStatus(){try{const res=await fetch(`../data/office-status.json?ts=${Date.now()}`,{cache:'no-store'}); if(!res.ok) throw new Error('HTTP '+res.status); const data=await res.json(); if(Array.isArray(data.events) && data.events.length) events=data.events; if(Array.isArray(data.reports) && data.reports.length) reports=data.reports; if(data.decision) decision=data.decision; const updated=data.updated_at_kst||data.updated_at||'unknown'; lastDataStamp=`실시간 상태 반영: ${updated} · source=${data.source||'office-status.json'}`;}catch(err){lastDataStamp=`상태 데이터 로딩 실패, 내장 샘플 표시 중 (${err.message})`; console.warn('office status load failed',err);} render();}
 document.querySelectorAll('[data-demo]').forEach(btn=>btn.addEventListener('click',()=>{const t=btn.dataset.demo; if(t==='claude')push({source:'claude-code',agent:'claude-code',character:'ko-bujang',status:'active',space:'internal',task_id:'impl_svg',task_title:'SVG/애니메이션 연결',message:'코부장 구현중',clone_id:null,progress:.2,severity:'normal'}); if(t==='codex')push({source:'codex-cli',agent:'codex-cli',character:'oh-gwajang',status:'active',space:'ops',task_id:'cli_verify',task_title:'CLI 검증 실행',message:'오과장 실행중',clone_id:null,progress:.2,severity:'normal'}); if(t==='gemini')push({source:'gemini-cli',agent:'gemini-cli',character:'jem-daeri',status:'active',space:'research',task_id:'ref_search',task_title:'레퍼런스 조사',message:'젬대리 조사중',clone_id:null,progress:.2,severity:'normal'}); if(t==='done')push({source:'hermes-agent',agent:'hermes',character:'heo-sajang',status:'done',space:'internal',task_id:'browser_qa',task_title:'브라우저 검증 완료',message:'분신 합체 완료',clone_id:'2',progress:1,severity:'normal'}); }));
 render(); loadStatus(); setInterval(render,1200); setInterval(loadStatus,60000); window.addEventListener('resize',render);
+
 </script>
 </body>
 </html>
