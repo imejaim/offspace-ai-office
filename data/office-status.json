@@ -1,7 +1,7 @@
 {
   "source": "mac-mini-status-script",
-  "updated_at": "2026-06-11T15:22:14.467991+09:00",
-  "updated_at_kst": "2026-06-11 15:22:14 KST",
+  "updated_at": "2026-06-11T15:24:17.403801+09:00",
+  "updated_at_kst": "2026-06-11 15:24:17 KST",
   "refresh_hint_seconds": 120,
   "decision": "대표님 결정 필요: Offspace 제품 우선순위 확정 / BaToo EC2 점검 승인",
   "reports": [
@@ -29,7 +29,7 @@
   "events": [
     {
       "event_id": "live_hermes",
-      "ts": "2026-06-11T15:22:14.659915+09:00",
+      "ts": "2026-06-11T15:24:17.615291+09:00",
       "source": "hermes-agent",
       "agent": "hermes",
       "character": "heo-sajang",
@@ -44,7 +44,7 @@
     },
     {
       "event_id": "live_claude",
-      "ts": "2026-06-11T15:22:14.659923+09:00",
+      "ts": "2026-06-11T15:24:17.615302+09:00",
       "source": "claude-code",
       "agent": "claude-code",
       "character": "ko-bujang",
@@ -59,7 +59,7 @@
     },
     {
       "event_id": "live_codex",
-      "ts": "2026-06-11T15:22:14.659927+09:00",
+      "ts": "2026-06-11T15:24:17.615305+09:00",
       "source": "codex-cli",
       "agent": "codex-cli",
       "character": "oh-gwajang",
@@ -74,7 +74,7 @@
     },
     {
       "event_id": "live_agy",
-      "ts": "2026-06-11T15:22:14.659928+09:00",
+      "ts": "2026-06-11T15:24:17.615308+09:00",
       "source": "antigravity/agy-cli",
       "agent": "agy-cli",
       "character": "jem-daeri",
@@ -89,7 +89,7 @@
     },
     {
       "event_id": "live_local_server",
-      "ts": "2026-06-11T15:22:14.659931+09:00",
+      "ts": "2026-06-11T15:24:17.615311+09:00",
       "source": "mac-mini",
       "agent": "python-http",
       "character": "heo-sajang",
