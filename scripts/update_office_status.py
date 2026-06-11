@@ -4,13 +4,15 @@ from __future__ import annotations
 
 import json
 import re
+import sqlite3
 import subprocess
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data" / "office-status.json"
+STATE_DB = Path.home() / ".hermes" / "state.db"
 KST = ZoneInfo("Asia/Seoul")
 
 
@@ -54,6 +56,76 @@ def event(event_id: str, source: str, agent: str, character: str, status: str, s
     }
 
 
+def compact(text: str, max_len: int = 74) -> str:
+    text = re.sub(r"\s+", " ", text or "").strip()
+    return text if len(text) <= max_len else text[: max_len - 1].rstrip() + "…"
+
+
+def latest_hermes_task(now: datetime) -> dict[str, str]:
+    """Infer the visible Hermes task from the local Hermes session DB.
+
+    This is intentionally read-only and heuristic: process state says whether Hermes
+    is alive; recent session messages say what Hermes is actually working on.
+    """
+    fallback = {
+        "task_id": "office_reporting",
+        "task_title": "사업보고/대시보드 관제",
+        "message": "허사장 관제중",
+        "space": "business",
+    }
+    if not STATE_DB.exists():
+        return fallback
+
+    cutoff = (now - timedelta(hours=18)).timestamp()
+    try:
+        con = sqlite3.connect(f"file:{STATE_DB}?mode=ro", uri=True, timeout=2)
+        rows = con.execute(
+            """
+            SELECT m.role, COALESCE(m.content, ''), m.timestamp, s.title, s.id
+            FROM messages m
+            JOIN sessions s ON s.id = m.session_id
+            WHERE m.timestamp >= ?
+              AND m.role IN ('user', 'assistant')
+              AND s.source IN ('telegram', 'cli')
+            ORDER BY m.timestamp DESC, m.id DESC
+            LIMIT 260
+            """,
+            (cutoff,),
+        ).fetchall()
+        con.close()
+    except Exception:
+        return fallback
+
+    # Prefer explicit Agentis/Cline work because that is a concrete project task,
+    # not just the generic dashboard/presence task.
+    for role, content, _ts, title, _sid in rows:
+        hay = f"{title or ''}\n{content}".lower()
+        if any(k in hay for k in ["agentis", "cline2agent", ".clinerules", "workflows"]):
+            return {
+                "task_id": "agentis_update",
+                "task_title": "Agentis workflows 구조 업데이트",
+                "message": "Agentis 업데이트 반영중",
+                "space": "internal",
+            }
+
+    for role, content, _ts, title, _sid in rows:
+        cleaned = compact(content)
+        if not cleaned:
+            continue
+        if cleaned.startswith("[CONTEXT COMPACTION") or cleaned.startswith("[IMPORTANT:"):
+            continue
+        if re.fullmatch(r"https?://\S+", cleaned):
+            continue
+        if role == "user":
+            return {
+                "task_id": "latest_user_request",
+                "task_title": compact(cleaned, 42),
+                "message": "최근 요청 처리중",
+                "space": "business",
+            }
+    return fallback
+
+
 def main() -> None:
     now = datetime.now(KST)
     lines = proc_lines()
@@ -64,6 +136,7 @@ def main() -> None:
     # Treat Antigravity/Gemini browser profile as the Gemini/젬대리 workspace being open, not necessarily an active CLI task.
     gemini_active = matching_proc(lines, r"(/|\b)gemini(\s|$)|antigravity-browser-profile")
     server_active = bool(run(["/usr/sbin/lsof", "-nP", "-iTCP:8790", "-sTCP:LISTEN"]).strip())
+    hermes_task = latest_hermes_task(now)
 
     events = [
         event(
@@ -72,10 +145,10 @@ def main() -> None:
             "hermes",
             "heo-sajang",
             "active" if hermes_active else "idle",
-            "business",
-            "office_reporting",
-            "사업보고/대시보드 관제",
-            "허사장 관제중" if hermes_active else "허사장 대기",
+            hermes_task["space"],
+            hermes_task["task_id"],
+            hermes_task["task_title"],
+            hermes_task["message"] if hermes_active else "허사장 대기",
             0.8 if hermes_active else 0,
         ),
         event(
@@ -121,7 +194,7 @@ def main() -> None:
     reports = [
         {"area": "Offspace 사업", "summary": "제품군 우선순위 재정렬 대기 — 대시보드에서 대표 보고 카드로 추적 중입니다."},
         {"area": "BaToo 투자", "summary": "운영 판단은 로컬이 아니라 EC2/실거래 상태 확인 선행 원칙 유지."},
-        {"area": "AI Office", "summary": "맥미니 상태를 JSON으로 생성해 GitHub Pages 사무실 화면에 반영 중입니다."},
+        {"area": "AI Office", "summary": f"현재 허사장 표시 작업: {hermes_task['task_title']}"},
         {"area": "R&D / PHTML", "summary": "보고서형 HTML/PHTML 표현 엔진은 향후 사업보고 화면 고도화에 활용 가능합니다."},
         {"area": "대외 전문활동", "summary": "RAPA 멘토링·KIEES 연구반은 행정/자료 업로드 관리 대상으로 분리 유지."},
     ]

@@ -1,7 +1,7 @@
 {
   "source": "mac-mini-status-script",
-  "updated_at": "2026-06-11T12:56:44.839952+09:00",
-  "updated_at_kst": "2026-06-11 12:56:44 KST",
+  "updated_at": "2026-06-11T12:57:49.679961+09:00",
+  "updated_at_kst": "2026-06-11 12:57:49 KST",
   "refresh_hint_seconds": 120,
   "decision": "대표님 결정 필요: Offspace 제품 우선순위 확정 / BaToo EC2 점검 승인",
   "reports": [
@@ -15,7 +15,7 @@
     },
     {
       "area": "AI Office",
-      "summary": "맥미니 상태를 JSON으로 생성해 GitHub Pages 사무실 화면에 반영 중입니다."
+      "summary": "현재 허사장 표시 작업: Agentis workflows 구조 업데이트"
     },
     {
       "area": "R&D / PHTML",
@@ -29,22 +29,22 @@
   "events": [
     {
       "event_id": "live_hermes",
-      "ts": "2026-06-11T12:56:44.957423+09:00",
+      "ts": "2026-06-11T12:57:49.862345+09:00",
       "source": "hermes-agent",
       "agent": "hermes",
       "character": "heo-sajang",
       "status": "active",
-      "space": "business",
-      "task_id": "office_reporting",
-      "task_title": "사업보고/대시보드 관제",
-      "message": "허사장 관제중",
+      "space": "internal",
+      "task_id": "agentis_update",
+      "task_title": "Agentis workflows 구조 업데이트",
+      "message": "Agentis 업데이트 반영중",
       "clone_id": null,
       "progress": 0.8,
       "severity": "normal"
     },
     {
       "event_id": "live_claude",
-      "ts": "2026-06-11T12:56:44.957458+09:00",
+      "ts": "2026-06-11T12:57:49.862361+09:00",
       "source": "claude-code",
       "agent": "claude-code",
       "character": "ko-bujang",
@@ -59,7 +59,7 @@
     },
     {
       "event_id": "live_codex",
-      "ts": "2026-06-11T12:56:44.957460+09:00",
+      "ts": "2026-06-11T12:57:49.862362+09:00",
       "source": "codex-cli",
       "agent": "codex-cli",
       "character": "oh-gwajang",
@@ -74,7 +74,7 @@
     },
     {
       "event_id": "live_gemini",
-      "ts": "2026-06-11T12:56:44.957461+09:00",
+      "ts": "2026-06-11T12:57:49.862364+09:00",
       "source": "gemini-cli",
       "agent": "gemini-cli",
       "character": "jem-daeri",
@@ -89,7 +89,7 @@
     },
     {
       "event_id": "live_local_server",
-      "ts": "2026-06-11T12:56:44.957464+09:00",
+      "ts": "2026-06-11T12:57:49.862367+09:00",
       "source": "mac-mini",
       "agent": "python-http",
       "character": "heo-sajang",
