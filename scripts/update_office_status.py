@@ -132,9 +132,10 @@ def main() -> None:
     hermes_active = matching_proc(lines, r"(/|\b)hermes(\s|$)|offs_hermes|hermes-agent")
     claude_telegram = matching_proc(lines, r"(/|\b)claude(\s|$).*plugin:telegram")
     claude_cli = matching_proc(lines, r"(/|\b)claude(\s|$).*\s-p(\s|$)")
-    codex_active = matching_proc(lines, r"(/|\b)(codex|codex-cli)(\s|$)")
-    # Treat Antigravity/Gemini browser profile as the Gemini/젬대리 workspace being open, not necessarily an active CLI task.
-    gemini_active = matching_proc(lines, r"(/|\b)gemini(\s|$)|antigravity-browser-profile")
+    codex_active = matching_proc(lines, r"(/|\b)(codex|codex-cli)(\s|$)(?!.*mcp-server)")
+    codex_available = matching_proc(lines, r"(/|\b)(codex|codex-cli)(\s|$).*(mcp-server)")
+    # 젬대리는 Gemini CLI가 아니라 Antigravity/Agy 작업자다. Browser profile / IDE / agy CLI 중 하나가 보이면 열린 상태로 표시한다.
+    agy_active = matching_proc(lines, r"(/|\b)agy(\s|$)|Antigravity( IDE)?\.app|antigravity-browser-profile")
     server_active = bool(run(["/usr/sbin/lsof", "-nP", "-iTCP:8790", "-sTCP:LISTEN"]).strip())
     hermes_task = latest_hermes_task(now)
 
@@ -172,20 +173,20 @@ def main() -> None:
             "ops",
             "codex_cli",
             "오과장 상태",
-            "오과장 실행중" if codex_active else "오과장 대기",
+            "오과장 CLI 실행중" if codex_active else ("오과장 MCP 대기" if codex_available else "오과장 대기"),
             0.5 if codex_active else 0,
         ),
         event(
-            "live_gemini",
-            "gemini-cli",
-            "gemini-cli",
+            "live_agy",
+            "antigravity/agy-cli",
+            "agy-cli",
             "jem-daeri",
-            "active" if gemini_active else "idle",
+            "active" if agy_active else "idle",
             "research",
-            "gemini_cli",
+            "agy_cli",
             "젬대리 상태",
-            "젬대리/Antigravity 열림" if gemini_active else "젬대리 대기",
-            0.5 if gemini_active else 0,
+            "젬대리 Antigravity/Agy 열림" if agy_active else "젬대리 대기",
+            0.5 if agy_active else 0,
         ),
     ]
     if server_active:
