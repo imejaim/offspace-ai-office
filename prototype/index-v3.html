@@ -17,12 +17,20 @@
 /* readability fix: keep office labels usable and allow manual repositioning */
 .agent,.bubble{pointer-events:auto;cursor:grab;touch-action:none;user-select:none}
 .agent.dragging,.bubble.dragging{cursor:grabbing;filter:drop-shadow(0 16px 22px rgba(15,23,42,.20))}
-#bubble-layer{inset:auto 30px 18px 30px;display:flex;flex-wrap:wrap;gap:8px;align-items:flex-end;justify-content:center;z-index:95;padding:10px 12px;border:1px solid rgba(15,23,42,.08);border-radius:18px;background:rgba(255,255,255,.78);backdrop-filter:blur(10px);box-shadow:0 10px 28px rgba(15,23,42,.10)}
-.bubble{position:static;max-width:210px;line-height:1.22;white-space:normal;cursor:default;box-shadow:0 6px 16px rgba(15,23,42,.08)}
-.bubble::before{content:attr(data-speaker);display:inline-block;margin-right:6px;color:#334155;font-weight:950}
-.bubble::after{content:""}
+/* Keep grid cards at their natural height; the office map should not stretch to the tall right queue. */
+.layout{align-items:start}
+.office-panel{align-self:start}
+/* Keep speech/status text out of the map. The right-side realtime queue is the canonical status text. */
+#bubble-layer{display:none!important}
+.bubble{display:none!important}
 .zone h3,.zone p{position:relative;z-index:80;background:rgba(255,255,255,.72);border-radius:8px;padding:1px 4px;margin-left:-4px}
-@media(max-width:640px){#bubble-layer{left:16px;right:16px;bottom:18px;max-height:112px;overflow:auto;justify-content:flex-start;padding:8px}.bubble{max-width:100%;font-size:11px;padding:7px 9px}.bubble::after{display:none}}
+/* Simplify the unclear top wall: no decorative windows/board, only a small meaning label. */
+.window,.board{display:none!important}
+.backwall{height:52px!important;background:linear-gradient(180deg,#eef9ff,#f8fcff)!important;border-bottom:1px solid #dbeafe!important}
+.backwall::after{content:"상태 동기화 · Mac mini → GitHub Pages → 모바일";position:absolute;left:28px;top:15px;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.86);border:1px solid rgba(15,23,42,.08);color:#33516b;font-size:12px;font-weight:950;box-shadow:0 6px 16px rgba(15,23,42,.06)}
+.floor{top:52px!important}
+.zones{top:82px!important;bottom:34px!important}
+@media(max-width:640px){.backwall{height:48px!important}.backwall::after{left:16px;right:16px;top:11px;text-align:center;font-size:11px;padding:7px 8px}.floor{top:48px!important}.zones{top:68px!important;bottom:18px!important}}
 </style>
 </head>
 <body>
