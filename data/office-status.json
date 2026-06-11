@@ -1,0 +1,106 @@
+{
+  "source": "mac-mini-status-script",
+  "updated_at": "2026-06-11T11:04:35.377142+09:00",
+  "updated_at_kst": "2026-06-11 11:04:35 KST",
+  "refresh_hint_seconds": 120,
+  "decision": "대표님 결정 필요: Offspace 제품 우선순위 확정 / BaToo EC2 점검 승인",
+  "reports": [
+    {
+      "area": "Offspace 사업",
+      "summary": "제품군 우선순위 재정렬 대기 — 대시보드에서 대표 보고 카드로 추적 중입니다."
+    },
+    {
+      "area": "BaToo 투자",
+      "summary": "운영 판단은 로컬이 아니라 EC2/실거래 상태 확인 선행 원칙 유지."
+    },
+    {
+      "area": "AI Office",
+      "summary": "맥미니 상태를 JSON으로 생성해 GitHub Pages 사무실 화면에 반영 중입니다."
+    },
+    {
+      "area": "R&D / PHTML",
+      "summary": "보고서형 HTML/PHTML 표현 엔진은 향후 사업보고 화면 고도화에 활용 가능합니다."
+    },
+    {
+      "area": "대외 전문활동",
+      "summary": "RAPA 멘토링·KIEES 연구반은 행정/자료 업로드 관리 대상으로 분리 유지."
+    }
+  ],
+  "events": [
+    {
+      "event_id": "live_hermes",
+      "ts": "2026-06-11T11:04:35.535851+09:00",
+      "source": "hermes-agent",
+      "agent": "hermes",
+      "character": "heo-sajang",
+      "status": "active",
+      "space": "business",
+      "task_id": "office_reporting",
+      "task_title": "사업보고/대시보드 관제",
+      "message": "허사장 관제중",
+      "clone_id": null,
+      "progress": 0.8,
+      "severity": "normal"
+    },
+    {
+      "event_id": "live_claude",
+      "ts": "2026-06-11T11:04:35.535902+09:00",
+      "source": "claude-code",
+      "agent": "claude-code",
+      "character": "ko-bujang",
+      "status": "active",
+      "space": "internal",
+      "task_id": "claude_code",
+      "task_title": "코부장 상태",
+      "message": "코부장 CLI 작업중",
+      "clone_id": null,
+      "progress": 0.55,
+      "severity": "normal"
+    },
+    {
+      "event_id": "live_codex",
+      "ts": "2026-06-11T11:04:35.535904+09:00",
+      "source": "codex-cli",
+      "agent": "codex-cli",
+      "character": "oh-gwajang",
+      "status": "active",
+      "space": "ops",
+      "task_id": "codex_cli",
+      "task_title": "오과장 상태",
+      "message": "오과장 실행중",
+      "clone_id": null,
+      "progress": 0.5,
+      "severity": "normal"
+    },
+    {
+      "event_id": "live_gemini",
+      "ts": "2026-06-11T11:04:35.535906+09:00",
+      "source": "gemini-cli",
+      "agent": "gemini-cli",
+      "character": "jem-daeri",
+      "status": "active",
+      "space": "research",
+      "task_id": "gemini_cli",
+      "task_title": "젬대리 상태",
+      "message": "젬대리 조사중",
+      "clone_id": null,
+      "progress": 0.5,
+      "severity": "normal"
+    },
+    {
+      "event_id": "live_local_server",
+      "ts": "2026-06-11T11:04:35.535910+09:00",
+      "source": "mac-mini",
+      "agent": "python-http",
+      "character": "heo-sajang",
+      "status": "parallel",
+      "space": "ops",
+      "task_id": "local_server",
+      "task_title": "로컬 서버",
+      "message": "사무실 LAN 서버 켜짐",
+      "clone_id": "LAN",
+      "progress": 1,
+      "severity": "normal"
+    }
+  ]
+}
