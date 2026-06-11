@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate Offspace AI Office status JSON from Mac mini process state."""
+"""Generate Offspace AI Office status JSON from Mac mini process/token state."""
 from __future__ import annotations
 
 import json
@@ -13,6 +13,7 @@ from zoneinfo import ZoneInfo
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data" / "office-status.json"
 STATE_DB = Path.home() / ".hermes" / "state.db"
+CODEX_SESSIONS = Path.home() / ".codex" / "sessions"
 KST = ZoneInfo("Asia/Seoul")
 
 
@@ -59,6 +60,49 @@ def event(event_id: str, source: str, agent: str, character: str, status: str, s
 def compact(text: str, max_len: int = 74) -> str:
     text = re.sub(r"\s+", " ", text or "").strip()
     return text if len(text) <= max_len else text[: max_len - 1].rstrip() + "…"
+
+
+def human_age(delta: timedelta) -> str:
+    minutes = max(0, int(delta.total_seconds() // 60))
+    if minutes < 60:
+        return f"{minutes}분 전"
+    hours = minutes // 60
+    if hours < 48:
+        return f"{hours}시간 전"
+    return f"{hours // 24}일 전"
+
+
+def latest_codex_token_event(now: datetime) -> dict[str, object] | None:
+    """Return newest Codex token_count event; process presence alone is idle/open."""
+    if not CODEX_SESSIONS.exists():
+        return None
+    newest = None
+    cutoff_mtime = (now - timedelta(days=14)).timestamp()
+    try:
+        files = [p for p in CODEX_SESSIONS.rglob("*.jsonl") if p.stat().st_mtime >= cutoff_mtime]
+    except Exception:
+        return None
+    for path in sorted(files, key=lambda p: p.stat().st_mtime, reverse=True)[:40]:
+        try:
+            for line in path.read_text(errors="ignore").splitlines():
+                if '"token_count"' not in line:
+                    continue
+                obj = json.loads(line)
+                payload = obj.get("payload") or {}
+                if payload.get("type") != "token_count":
+                    continue
+                ts = obj.get("timestamp")
+                if not ts:
+                    continue
+                dt = datetime.fromisoformat(ts.replace("Z", "+00:00")).astimezone(KST)
+                info = payload.get("info") or {}
+                usage = info.get("last_token_usage") or info.get("total_token_usage") or {}
+                item = {"ts": dt, "usage": usage, "path": str(path)}
+                if newest is None or dt > newest["ts"]:
+                    newest = item
+        except Exception:
+            continue
+    return newest
 
 
 def latest_hermes_task(now: datetime) -> dict[str, str]:
@@ -132,12 +176,19 @@ def main() -> None:
     hermes_active = matching_proc(lines, r"(/|\b)hermes(\s|$)|offs_hermes|hermes-agent")
     claude_telegram = matching_proc(lines, r"(/|\b)claude(\s|$).*plugin:telegram")
     claude_cli = matching_proc(lines, r"(/|\b)claude(\s|$).*\s-p(\s|$)")
-    codex_active = matching_proc(lines, r"(/|\b)(codex|codex-cli)(\s|$)(?!.*mcp-server)")
+    codex_terminal_open = matching_proc(lines, r"(/|\b)(codex|codex-cli)(\s|$)(?!.*mcp-server)")
     codex_available = matching_proc(lines, r"(/|\b)(codex|codex-cli)(\s|$).*(mcp-server)")
     # 젬대리는 Gemini CLI가 아니라 Antigravity/Agy 작업자다. Browser profile / IDE / agy CLI 중 하나가 보이면 열린 상태로 표시한다.
-    agy_active = matching_proc(lines, r"(/|\b)agy(\s|$)|Antigravity( IDE)?\.app|antigravity-browser-profile")
+    agy_open = matching_proc(lines, r"(/|\b)agy(\s|$)|Antigravity( IDE)?\.app|antigravity-browser-profile")
     server_active = bool(run(["/usr/sbin/lsof", "-nP", "-iTCP:8790", "-sTCP:LISTEN"]).strip())
     hermes_task = latest_hermes_task(now)
+    codex_token = latest_codex_token_event(now)
+    codex_token_ts = codex_token["ts"] if codex_token else None
+    codex_token_age = (now - codex_token_ts) if isinstance(codex_token_ts, datetime) else None
+    codex_using_tokens = bool(codex_token_age and codex_token_age <= timedelta(minutes=5))
+    codex_token_msg = "오과장 토큰 사용중" if codex_using_tokens else (
+        f"오과장 대기 · 마지막 토큰 {human_age(codex_token_age)}" if codex_token_age else "오과장 대기 · 토큰 기록 없음"
+    )
 
     events = [
         event(
@@ -169,24 +220,24 @@ def main() -> None:
             "codex-cli",
             "codex-cli",
             "oh-gwajang",
-            "active" if codex_active else "idle",
+            "active" if codex_using_tokens else "idle",
             "ops",
             "codex_cli",
             "오과장 상태",
-            "오과장 CLI 실행중" if codex_active else ("오과장 MCP 대기" if codex_available else "오과장 대기"),
-            0.5 if codex_active else 0,
+            codex_token_msg if (codex_terminal_open or codex_available or codex_token) else "오과장 대기",
+            0.5 if codex_using_tokens else 0,
         ),
         event(
             "live_agy",
             "antigravity/agy-cli",
             "agy-cli",
             "jem-daeri",
-            "active" if agy_active else "idle",
+            "idle",
             "research",
             "agy_cli",
             "젬대리 상태",
-            "젬대리 Antigravity/Agy 열림" if agy_active else "젬대리 대기",
-            0.5 if agy_active else 0,
+            "젬대리 Antigravity/Agy 열림 · 토큰 사용 감지 안됨" if agy_open else "젬대리 대기",
+            0,
         ),
     ]
     if server_active:

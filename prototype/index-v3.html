@@ -107,7 +107,7 @@ function render(){const state=snapshot(); const active=state.filter(e=>['active'
  document.getElementById('bubble-layer').innerHTML=state.map(e=>`<div class="bubble ${e.status}" data-speaker="${esc(speakerName(e)+':')}">${esc(e.message)}</div>`).join('');
  document.getElementById('report-panel').innerHTML=reports.map(r=>`<div class="report-card"><b>${esc(r.area)}</b><span>${esc(r.summary)}</span></div>`).join('');
  document.getElementById('decision-panel').textContent=decision;
- document.getElementById('queue-panel').innerHTML=state.map(e=>`<div class="job ${e.status}"><strong>${esc(CHAR[e.character]?.name||e.character)}: ${esc(e.task_title)}</strong><small>${esc(e.agent)} · ${esc(SPACES[e.space]?.label||e.space)}${e.clone_id?' · 분신 '+esc(e.clone_id):''}</small></div>`).join('');
+ document.getElementById('queue-panel').innerHTML=state.map(e=>`<div class="job ${e.status}"><strong>${esc(CHAR[e.character]?.name||e.character)}: ${esc(e.task_title)}</strong><small>${esc(e.message||'상태 메시지 없음')}</small><small>${esc(e.agent)} · ${esc(SPACES[e.space]?.label||e.space)}${e.clone_id?' · 분신 '+esc(e.clone_id):''}</small></div>`).join('');
  document.getElementById('data-stamp').textContent=lastDataStamp;
  installDragHandlers();
 }

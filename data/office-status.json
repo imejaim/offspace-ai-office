@@ -1,7 +1,7 @@
 {
   "source": "mac-mini-status-script",
-  "updated_at": "2026-06-11T14:24:50.085197+09:00",
-  "updated_at_kst": "2026-06-11 14:24:50 KST",
+  "updated_at": "2026-06-11T14:26:02.848428+09:00",
+  "updated_at_kst": "2026-06-11 14:26:02 KST",
   "refresh_hint_seconds": 120,
   "decision": "대표님 결정 필요: Offspace 제품 우선순위 확정 / BaToo EC2 점검 승인",
   "reports": [
@@ -29,7 +29,7 @@
   "events": [
     {
       "event_id": "live_hermes",
-      "ts": "2026-06-11T14:24:50.270144+09:00",
+      "ts": "2026-06-11T14:26:03.060215+09:00",
       "source": "hermes-agent",
       "agent": "hermes",
       "character": "heo-sajang",
@@ -44,7 +44,7 @@
     },
     {
       "event_id": "live_claude",
-      "ts": "2026-06-11T14:24:50.270159+09:00",
+      "ts": "2026-06-11T14:26:03.060230+09:00",
       "source": "claude-code",
       "agent": "claude-code",
       "character": "ko-bujang",
@@ -59,7 +59,7 @@
     },
     {
       "event_id": "live_codex",
-      "ts": "2026-06-11T14:24:50.270161+09:00",
+      "ts": "2026-06-11T14:26:03.060231+09:00",
       "source": "codex-cli",
       "agent": "codex-cli",
       "character": "oh-gwajang",
@@ -67,29 +67,29 @@
       "space": "ops",
       "task_id": "codex_cli",
       "task_title": "오과장 상태",
-      "message": "오과장 MCP 대기",
+      "message": "오과장 대기 · 마지막 토큰 10일 전",
       "clone_id": null,
       "progress": 0,
       "severity": "normal"
     },
     {
       "event_id": "live_agy",
-      "ts": "2026-06-11T14:24:50.270162+09:00",
+      "ts": "2026-06-11T14:26:03.060233+09:00",
       "source": "antigravity/agy-cli",
       "agent": "agy-cli",
       "character": "jem-daeri",
-      "status": "active",
+      "status": "idle",
       "space": "research",
       "task_id": "agy_cli",
       "task_title": "젬대리 상태",
-      "message": "젬대리 Antigravity/Agy 열림",
+      "message": "젬대리 Antigravity/Agy 열림 · 토큰 사용 감지 안됨",
       "clone_id": null,
-      "progress": 0.5,
+      "progress": 0,
       "severity": "normal"
     },
     {
       "event_id": "live_local_server",
-      "ts": "2026-06-11T14:24:50.270165+09:00",
+      "ts": "2026-06-11T14:26:03.060235+09:00",
       "source": "mac-mini",
       "agent": "python-http",
       "character": "heo-sajang",
