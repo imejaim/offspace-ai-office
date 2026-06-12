@@ -1,7 +1,7 @@
 {
   "source": "mac-mini-status-script",
-  "updated_at": "2026-06-12T20:17:06.893912+09:00",
-  "updated_at_kst": "2026-06-12 20:17:06 KST",
+  "updated_at": "2026-06-12T20:19:09.816365+09:00",
+  "updated_at_kst": "2026-06-12 20:19:09 KST",
   "refresh_hint_seconds": 120,
   "decision": "대표님 결정 필요: Offspace 제품 우선순위 확정 / BaToo EC2 점검 승인",
   "reports": [
@@ -15,7 +15,7 @@
     },
     {
       "area": "AI Office",
-      "summary": "현재 허사장 표시 작업: 좋다. 리플타이드는 30분쯤 후에 한번 동작 상태와 수익 상태 확인해 보는…"
+      "summary": "현재 허사장 표시 작업: 허허사장. 토스 api 키 연결부터 해보자. 어떻게 하는건지 알려줘"
     },
     {
       "area": "R&D / PHTML",
@@ -29,14 +29,14 @@
   "events": [
     {
       "event_id": "live_hermes",
-      "ts": "2026-06-12T20:17:07.053556+09:00",
+      "ts": "2026-06-12T20:19:09.957218+09:00",
       "source": "hermes-agent",
       "agent": "hermes",
       "character": "heo-sajang",
       "status": "active",
       "space": "business",
       "task_id": "latest_user_request",
-      "task_title": "좋다. 리플타이드는 30분쯤 후에 한번 동작 상태와 수익 상태 확인해 보는…",
+      "task_title": "허허사장. 토스 api 키 연결부터 해보자. 어떻게 하는건지 알려줘",
       "message": "최근 요청 처리중",
       "clone_id": null,
       "progress": 0.8,
@@ -44,7 +44,7 @@
     },
     {
       "event_id": "live_claude",
-      "ts": "2026-06-12T20:17:07.053564+09:00",
+      "ts": "2026-06-12T20:19:09.957225+09:00",
       "source": "claude-code",
       "agent": "claude-code",
       "character": "ko-bujang",
@@ -59,7 +59,7 @@
     },
     {
       "event_id": "live_codex",
-      "ts": "2026-06-12T20:17:07.053566+09:00",
+      "ts": "2026-06-12T20:19:09.957227+09:00",
       "source": "codex-cli",
       "agent": "codex-cli",
       "character": "oh-gwajang",
@@ -74,7 +74,7 @@
     },
     {
       "event_id": "live_agy",
-      "ts": "2026-06-12T20:17:07.053567+09:00",
+      "ts": "2026-06-12T20:19:09.957229+09:00",
       "source": "antigravity/agy-cli",
       "agent": "agy-cli",
       "character": "jem-daeri",
@@ -89,7 +89,7 @@
     },
     {
       "event_id": "live_local_server",
-      "ts": "2026-06-12T20:17:07.053571+09:00",
+      "ts": "2026-06-12T20:19:09.957232+09:00",
       "source": "mac-mini",
       "agent": "python-http",
       "character": "heo-sajang",
