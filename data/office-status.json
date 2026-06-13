@@ -1,7 +1,7 @@
 {
   "source": "mac-mini-status-script",
-  "updated_at": "2026-06-13T15:23:53.894355+09:00",
-  "updated_at_kst": "2026-06-13 15:23:53 KST",
+  "updated_at": "2026-06-13T15:26:00.275674+09:00",
+  "updated_at_kst": "2026-06-13 15:26:00 KST",
   "refresh_hint_seconds": 120,
   "decision": "대표님 결정 필요: Offspace 제품 우선순위 확정 / BaToo EC2 점검 승인",
   "reports": [
@@ -29,7 +29,7 @@
   "events": [
     {
       "event_id": "live_hermes",
-      "ts": "2026-06-13T15:23:56.008904+09:00",
+      "ts": "2026-06-13T15:26:00.400065+09:00",
       "source": "hermes-agent",
       "agent": "hermes",
       "character": "heo-sajang",
@@ -44,7 +44,7 @@
     },
     {
       "event_id": "live_claude",
-      "ts": "2026-06-13T15:23:56.008941+09:00",
+      "ts": "2026-06-13T15:26:00.400073+09:00",
       "source": "claude-code",
       "agent": "claude-code",
       "character": "ko-bujang",
@@ -59,7 +59,7 @@
     },
     {
       "event_id": "live_codex",
-      "ts": "2026-06-13T15:23:56.008947+09:00",
+      "ts": "2026-06-13T15:26:00.400075+09:00",
       "source": "codex-cli",
       "agent": "codex-cli",
       "character": "oh-gwajang",
@@ -74,7 +74,7 @@
     },
     {
       "event_id": "live_agy",
-      "ts": "2026-06-13T15:23:56.008950+09:00",
+      "ts": "2026-06-13T15:26:00.400076+09:00",
       "source": "antigravity/agy-cli",
       "agent": "agy-cli",
       "character": "jem-daeri",
@@ -85,6 +85,21 @@
       "message": "젬대리 Antigravity/Agy 열림 · 토큰 사용 감지 안됨",
       "clone_id": null,
       "progress": 0,
+      "severity": "normal"
+    },
+    {
+      "event_id": "live_local_server",
+      "ts": "2026-06-13T15:26:00.400080+09:00",
+      "source": "mac-mini",
+      "agent": "python-http",
+      "character": "heo-sajang",
+      "status": "parallel",
+      "space": "ops",
+      "task_id": "local_server",
+      "task_title": "로컬 서버",
+      "message": "사무실 LAN 서버 켜짐",
+      "clone_id": "LAN",
+      "progress": 1,
       "severity": "normal"
     }
   ]
