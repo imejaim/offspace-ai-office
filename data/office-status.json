@@ -1,7 +1,7 @@
 {
   "source": "mac-mini-status-script",
-  "updated_at": "2026-06-13T10:33:29.586667+09:00",
-  "updated_at_kst": "2026-06-13 10:33:29 KST",
+  "updated_at": "2026-06-13T10:35:32.344909+09:00",
+  "updated_at_kst": "2026-06-13 10:35:32 KST",
   "refresh_hint_seconds": 120,
   "decision": "대표님 결정 필요: Offspace 제품 우선순위 확정 / BaToo EC2 점검 승인",
   "reports": [
@@ -15,7 +15,7 @@
     },
     {
       "area": "AI Office",
-      "summary": "현재 허사장 표시 작업: 리플타이드 v4.1아닐까? 그리고 챙길 일 생각중인게 인터셉트의 홍보? 바…"
+      "summary": "현재 허사장 표시 작업: Agentis workflows 구조 업데이트"
     },
     {
       "area": "R&D / PHTML",
@@ -29,22 +29,22 @@
   "events": [
     {
       "event_id": "live_hermes",
-      "ts": "2026-06-13T10:33:29.756356+09:00",
+      "ts": "2026-06-13T10:35:32.467091+09:00",
       "source": "hermes-agent",
       "agent": "hermes",
       "character": "heo-sajang",
       "status": "active",
-      "space": "business",
-      "task_id": "latest_user_request",
-      "task_title": "리플타이드 v4.1아닐까? 그리고 챙길 일 생각중인게 인터셉트의 홍보? 바…",
-      "message": "최근 요청 처리중",
+      "space": "internal",
+      "task_id": "agentis_update",
+      "task_title": "Agentis workflows 구조 업데이트",
+      "message": "Agentis 업데이트 반영중",
       "clone_id": null,
       "progress": 0.8,
       "severity": "normal"
     },
     {
       "event_id": "live_claude",
-      "ts": "2026-06-13T10:33:29.756364+09:00",
+      "ts": "2026-06-13T10:35:32.467099+09:00",
       "source": "claude-code",
       "agent": "claude-code",
       "character": "ko-bujang",
@@ -59,7 +59,7 @@
     },
     {
       "event_id": "live_codex",
-      "ts": "2026-06-13T10:33:29.756365+09:00",
+      "ts": "2026-06-13T10:35:32.467102+09:00",
       "source": "codex-cli",
       "agent": "codex-cli",
       "character": "oh-gwajang",
@@ -74,7 +74,7 @@
     },
     {
       "event_id": "live_agy",
-      "ts": "2026-06-13T10:33:29.756367+09:00",
+      "ts": "2026-06-13T10:35:32.467103+09:00",
       "source": "antigravity/agy-cli",
       "agent": "agy-cli",
       "character": "jem-daeri",
@@ -89,7 +89,7 @@
     },
     {
       "event_id": "live_local_server",
-      "ts": "2026-06-13T10:33:29.756371+09:00",
+      "ts": "2026-06-13T10:35:32.467106+09:00",
       "source": "mac-mini",
       "agent": "python-http",
       "character": "heo-sajang",
