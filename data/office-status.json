@@ -1,7 +1,7 @@
 {
   "source": "mac-mini-status-script",
-  "updated_at": "2026-06-14T15:02:12.387483+09:00",
-  "updated_at_kst": "2026-06-14 15:02:12 KST",
+  "updated_at": "2026-06-14T15:04:15.177728+09:00",
+  "updated_at_kst": "2026-06-14 15:04:15 KST",
   "refresh_hint_seconds": 120,
   "decision": "대표님 결정 필요: Offspace 제품 우선순위 확정 / BaToo EC2 점검 승인",
   "reports": [
@@ -15,7 +15,7 @@
     },
     {
       "area": "AI Office",
-      "summary": "현재 허사장 표시 작업: Agentis workflows 구조 업데이트"
+      "summary": "현재 허사장 표시 작업: 확정 부분익절이 어떤구조로 되어 있지? 몇퍼센트이지?"
     },
     {
       "area": "R&D / PHTML",
@@ -29,22 +29,22 @@
   "events": [
     {
       "event_id": "live_hermes",
-      "ts": "2026-06-14T15:02:12.504016+09:00",
+      "ts": "2026-06-14T15:04:15.257180+09:00",
       "source": "hermes-agent",
       "agent": "hermes",
       "character": "heo-sajang",
       "status": "active",
-      "space": "internal",
-      "task_id": "agentis_update",
-      "task_title": "Agentis workflows 구조 업데이트",
-      "message": "Agentis 업데이트 반영중",
+      "space": "business",
+      "task_id": "latest_user_request",
+      "task_title": "확정 부분익절이 어떤구조로 되어 있지? 몇퍼센트이지?",
+      "message": "최근 요청 처리중",
       "clone_id": null,
       "progress": 0.8,
       "severity": "normal"
     },
     {
       "event_id": "live_claude",
-      "ts": "2026-06-14T15:02:12.504024+09:00",
+      "ts": "2026-06-14T15:04:15.257193+09:00",
       "source": "claude-code",
       "agent": "claude-code",
       "character": "ko-bujang",
@@ -59,7 +59,7 @@
     },
     {
       "event_id": "live_codex",
-      "ts": "2026-06-14T15:02:12.504026+09:00",
+      "ts": "2026-06-14T15:04:15.257194+09:00",
       "source": "codex-cli",
       "agent": "codex-cli",
       "character": "oh-gwajang",
@@ -74,7 +74,7 @@
     },
     {
       "event_id": "live_agy",
-      "ts": "2026-06-14T15:02:12.504027+09:00",
+      "ts": "2026-06-14T15:04:15.257196+09:00",
       "source": "antigravity/agy-cli",
       "agent": "agy-cli",
       "character": "jem-daeri",
@@ -89,7 +89,7 @@
     },
     {
       "event_id": "live_local_server",
-      "ts": "2026-06-14T15:02:12.504029+09:00",
+      "ts": "2026-06-14T15:04:15.257198+09:00",
       "source": "mac-mini",
       "agent": "python-http",
       "character": "heo-sajang",
