@@ -1,7 +1,7 @@
 {
   "source": "mac-mini-status-script",
-  "updated_at": "2026-06-14T23:44:03.665561+09:00",
-  "updated_at_kst": "2026-06-14 23:44:03 KST",
+  "updated_at": "2026-06-14T23:46:06.448749+09:00",
+  "updated_at_kst": "2026-06-14 23:46:06 KST",
   "refresh_hint_seconds": 120,
   "decision": "대표님 결정 필요: Offspace 제품 우선순위 확정 / BaToo EC2 점검 승인",
   "reports": [
@@ -15,7 +15,7 @@
     },
     {
       "area": "AI Office",
-      "summary": "현재 허사장 표시 작업: Design robust drift monitoring and auto-r…"
+      "summary": "현재 허사장 표시 작업: 이번 수정은 거의 5.0 수준이네. 진행한다면 전량청산 리셋으로 해도 될듯…"
     },
     {
       "area": "R&D / PHTML",
@@ -29,14 +29,14 @@
   "events": [
     {
       "event_id": "live_hermes",
-      "ts": "2026-06-14T23:44:03.743445+09:00",
+      "ts": "2026-06-14T23:46:06.525746+09:00",
       "source": "hermes-agent",
       "agent": "hermes",
       "character": "heo-sajang",
       "status": "active",
       "space": "business",
       "task_id": "latest_user_request",
-      "task_title": "Design robust drift monitoring and auto-r…",
+      "task_title": "이번 수정은 거의 5.0 수준이네. 진행한다면 전량청산 리셋으로 해도 될듯…",
       "message": "최근 요청 처리중",
       "clone_id": null,
       "progress": 0.8,
@@ -44,7 +44,7 @@
     },
     {
       "event_id": "live_claude",
-      "ts": "2026-06-14T23:44:03.743454+09:00",
+      "ts": "2026-06-14T23:46:06.525755+09:00",
       "source": "claude-code",
       "agent": "claude-code",
       "character": "ko-bujang",
@@ -59,7 +59,7 @@
     },
     {
       "event_id": "live_codex",
-      "ts": "2026-06-14T23:44:03.743457+09:00",
+      "ts": "2026-06-14T23:46:06.525757+09:00",
       "source": "codex-cli",
       "agent": "codex-cli",
       "character": "oh-gwajang",
@@ -74,7 +74,7 @@
     },
     {
       "event_id": "live_agy",
-      "ts": "2026-06-14T23:44:03.743459+09:00",
+      "ts": "2026-06-14T23:46:06.525759+09:00",
       "source": "antigravity/agy-cli",
       "agent": "agy-cli",
       "character": "jem-daeri",
@@ -89,7 +89,7 @@
     },
     {
       "event_id": "live_local_server",
-      "ts": "2026-06-14T23:44:03.743461+09:00",
+      "ts": "2026-06-14T23:46:06.525761+09:00",
       "source": "mac-mini",
       "agent": "python-http",
       "character": "heo-sajang",
