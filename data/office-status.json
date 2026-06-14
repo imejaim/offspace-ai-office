@@ -1,7 +1,7 @@
 {
   "source": "mac-mini-status-script",
-  "updated_at": "2026-06-14T21:55:36.119926+09:00",
-  "updated_at_kst": "2026-06-14 21:55:36 KST",
+  "updated_at": "2026-06-14T21:57:38.999333+09:00",
+  "updated_at_kst": "2026-06-14 21:57:38 KST",
   "refresh_hint_seconds": 120,
   "decision": "대표님 결정 필요: Offspace 제품 우선순위 확정 / BaToo EC2 점검 승인",
   "reports": [
@@ -15,7 +15,7 @@
     },
     {
       "area": "AI Office",
-      "summary": "현재 허사장 표시 작업: 좋다 실험전에 궁금한점이 있다. 롱포지현 1차 2차 이렇게 들어가도 실제…"
+      "summary": "현재 허사장 표시 작업: ㅇㅋ 별도 관리는 정말 잘 해야하는 것이군 허사장 대단하다. 이제 실험이어…"
     },
     {
       "area": "R&D / PHTML",
@@ -29,14 +29,14 @@
   "events": [
     {
       "event_id": "live_hermes",
-      "ts": "2026-06-14T21:55:36.249629+09:00",
+      "ts": "2026-06-14T21:57:39.077637+09:00",
       "source": "hermes-agent",
       "agent": "hermes",
       "character": "heo-sajang",
       "status": "active",
       "space": "business",
       "task_id": "latest_user_request",
-      "task_title": "좋다 실험전에 궁금한점이 있다. 롱포지현 1차 2차 이렇게 들어가도 실제…",
+      "task_title": "ㅇㅋ 별도 관리는 정말 잘 해야하는 것이군 허사장 대단하다. 이제 실험이어…",
       "message": "최근 요청 처리중",
       "clone_id": null,
       "progress": 0.8,
@@ -44,7 +44,7 @@
     },
     {
       "event_id": "live_claude",
-      "ts": "2026-06-14T21:55:36.249640+09:00",
+      "ts": "2026-06-14T21:57:39.077648+09:00",
       "source": "claude-code",
       "agent": "claude-code",
       "character": "ko-bujang",
@@ -59,7 +59,7 @@
     },
     {
       "event_id": "live_codex",
-      "ts": "2026-06-14T21:55:36.249642+09:00",
+      "ts": "2026-06-14T21:57:39.077651+09:00",
       "source": "codex-cli",
       "agent": "codex-cli",
       "character": "oh-gwajang",
@@ -74,7 +74,7 @@
     },
     {
       "event_id": "live_agy",
-      "ts": "2026-06-14T21:55:36.249643+09:00",
+      "ts": "2026-06-14T21:57:39.077652+09:00",
       "source": "antigravity/agy-cli",
       "agent": "agy-cli",
       "character": "jem-daeri",
@@ -89,7 +89,7 @@
     },
     {
       "event_id": "live_local_server",
-      "ts": "2026-06-14T21:55:36.249645+09:00",
+      "ts": "2026-06-14T21:57:39.077654+09:00",
       "source": "mac-mini",
       "agent": "python-http",
       "character": "heo-sajang",
