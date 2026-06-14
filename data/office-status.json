@@ -1,7 +1,7 @@
 {
   "source": "mac-mini-status-script",
-  "updated_at": "2026-06-14T20:27:36.536110+09:00",
-  "updated_at_kst": "2026-06-14 20:27:36 KST",
+  "updated_at": "2026-06-14T20:29:39.258644+09:00",
+  "updated_at_kst": "2026-06-14 20:29:39 KST",
   "refresh_hint_seconds": 120,
   "decision": "대표님 결정 필요: Offspace 제품 우선순위 확정 / BaToo EC2 점검 승인",
   "reports": [
@@ -15,7 +15,7 @@
     },
     {
       "area": "AI Office",
-      "summary": "현재 허사장 표시 작업: 확정 부분익절이 어떤구조로 되어 있지? 몇퍼센트이지?"
+      "summary": "현재 허사장 표시 작업: 허사장 리플타이드에 코인별 청산은 어떻게 동작하도록 되어있지? 전체 5프로…"
     },
     {
       "area": "R&D / PHTML",
@@ -29,14 +29,14 @@
   "events": [
     {
       "event_id": "live_hermes",
-      "ts": "2026-06-14T20:27:36.649391+09:00",
+      "ts": "2026-06-14T20:29:39.381187+09:00",
       "source": "hermes-agent",
       "agent": "hermes",
       "character": "heo-sajang",
       "status": "active",
       "space": "business",
       "task_id": "latest_user_request",
-      "task_title": "확정 부분익절이 어떤구조로 되어 있지? 몇퍼센트이지?",
+      "task_title": "허사장 리플타이드에 코인별 청산은 어떻게 동작하도록 되어있지? 전체 5프로…",
       "message": "최근 요청 처리중",
       "clone_id": null,
       "progress": 0.8,
@@ -44,7 +44,7 @@
     },
     {
       "event_id": "live_claude",
-      "ts": "2026-06-14T20:27:36.649398+09:00",
+      "ts": "2026-06-14T20:29:39.381195+09:00",
       "source": "claude-code",
       "agent": "claude-code",
       "character": "ko-bujang",
@@ -59,7 +59,7 @@
     },
     {
       "event_id": "live_codex",
-      "ts": "2026-06-14T20:27:36.649400+09:00",
+      "ts": "2026-06-14T20:29:39.381196+09:00",
       "source": "codex-cli",
       "agent": "codex-cli",
       "character": "oh-gwajang",
@@ -74,7 +74,7 @@
     },
     {
       "event_id": "live_agy",
-      "ts": "2026-06-14T20:27:36.649401+09:00",
+      "ts": "2026-06-14T20:29:39.381198+09:00",
       "source": "antigravity/agy-cli",
       "agent": "agy-cli",
       "character": "jem-daeri",
@@ -89,7 +89,7 @@
     },
     {
       "event_id": "live_local_server",
-      "ts": "2026-06-14T20:27:36.649403+09:00",
+      "ts": "2026-06-14T20:29:39.381200+09:00",
       "source": "mac-mini",
       "agent": "python-http",
       "character": "heo-sajang",
