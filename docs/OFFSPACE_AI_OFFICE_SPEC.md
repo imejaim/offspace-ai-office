@@ -14,7 +14,7 @@
 - 허사장: Hermes 작업
 - 코부장: Claude Code 작업
 - 오과장: Codex CLI 작업
-- 젬대리: Gemini CLI 또는 Antigravity CLI 작업
+- 젬대리: Antigravity/Agy Research Lounge 작업
 
 ## 표시 규칙
 - idle: 자기 자리에서 대기
@@ -26,6 +26,11 @@
 ## 허사장 / 코부장 역할 분담
 - 허사장: 전체 UX, 상태 규칙, 업무 분류, 이벤트 스키마, 대표님 보고
 - 코부장: 실제 대시보드 구현, SVG 캐릭터 연결, 애니메이션/상태 렌더링
+
+## 젬대리 표현 기준
+- 젬대리는 `Antigravity/Agy Research Lounge` 기준으로 통일한다.
+- UI에는 `jem-daeri` 캐릭터가 Research Lounge에 배치되며, 조사·요약·문서 작업 상태를 담당한다.
+- 이벤트의 source/agent 표기는 `antigravity/agy-cli`, `agy-cli`를 우선 사용한다.
 
 ## 메신저 보고 원칙
 - 대표님이 답답하지 않도록 중간중간 짧게 보고한다.

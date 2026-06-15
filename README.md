@@ -43,6 +43,6 @@ GitHub Pages는 정적 호스팅이므로 맥미니가 2분마다 상태 JSON을
 
 ## 다음 구현
 
-- 실제 Hermes / Claude Code / Codex / Gemini 실행 이벤트를 `events/activity_events.jsonl`에 더 정교하게 기록
+- 실제 Hermes / Claude Code / Codex / Antigravity·Agy 실행 이벤트를 `events/activity_events.jsonl`에 더 정교하게 기록
 - 사업보고 JSON을 업무별 파일로 분리해 누적 이력화
 - Cloudflare 도메인/접근제어/실시간 터널은 2단계에서 검토

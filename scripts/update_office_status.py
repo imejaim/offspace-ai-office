@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 import sqlite3
 import subprocess
@@ -60,6 +61,104 @@ def event(event_id: str, source: str, agent: str, character: str, status: str, s
 def compact(text: str, max_len: int = 74) -> str:
     text = re.sub(r"\s+", " ", text or "").strip()
     return text if len(text) <= max_len else text[: max_len - 1].rstrip() + "…"
+
+
+def category_task(task_id: str, task_title: str, message: str, space: str) -> dict[str, str]:
+    return {
+        "task_id": task_id,
+        "task_title": task_title,
+        "message": message,
+        "space": space,
+    }
+
+
+HERMES_TASK_CATEGORIES = [
+    (
+        "offspace_ai_office",
+        "AI Office 상태 신뢰도 개선",
+        "AI Office 상태 갱신중",
+        "internal",
+        [
+            "offspace ai office",
+            "office-status",
+            "update_office_status",
+            "update_and_push_status",
+            "대시보드",
+            "상태 신뢰도",
+            "코부장",
+            "오과장",
+            "젬대리",
+            "허사장",
+        ],
+    ),
+    (
+        "agentis_update",
+        "Agentis workflows 구조 업데이트",
+        "Agentis 업데이트 반영중",
+        "internal",
+        ["agentis", "cline2agent", ".clinerules", "workflows"],
+    ),
+    (
+        "office_reporting",
+        "사업보고/대시보드 관제",
+        "허사장 관제중",
+        "business",
+        ["사업보고", "보고", "batoo", "투자", "제품 우선순위", "offspace 사업"],
+    ),
+    (
+        "session_maintenance",
+        "Hermes 세션/컨텍스트 정리",
+        "세션 상태 정리중",
+        "ops",
+        ["context compaction", "active task list", "preserved across", "session", "컨텍스트"],
+    ),
+]
+
+
+def normalize_hermes_task(raw_text: str, raw_title: str | None = None) -> dict[str, str] | None:
+    """Map noisy recent Hermes messages to stable dashboard categories."""
+    cleaned = compact(raw_text, 500)
+    if not cleaned:
+        return None
+    if re.fullmatch(r"https?://\S+", cleaned):
+        return None
+
+    hay = f"{raw_title or ''}\n{cleaned}".lower()
+    for task_id, task_title, message, space, keywords in HERMES_TASK_CATEGORIES:
+        if any(k in hay for k in keywords):
+            return category_task(task_id, task_title, message, space)
+
+    # Keep uncategorized recent work readable without exposing raw prompt text.
+    return category_task("latest_user_request", "최근 사용자 요청", "최근 요청 처리중", "business")
+
+
+def previous_publish_status() -> dict[str, str | None]:
+    fallback = {
+        "status": "unknown",
+        "updated_at": None,
+        "message": "publish 상태 기록 없음",
+        "log_path": str(Path.home() / ".hermes" / "logs" / "office-status-publish.log"),
+    }
+    try:
+        previous = json.loads(OUT.read_text())
+        publish = previous.get("publish") or {}
+        if isinstance(publish, dict):
+            fallback.update({k: publish.get(k, v) for k, v in fallback.items()})
+    except Exception:
+        pass
+    return fallback
+
+
+def current_publish_status(now: datetime) -> dict[str, str | None]:
+    publish = previous_publish_status()
+    env_status = os.environ.get("OFFICE_PUBLISH_STATUS")
+    env_message = os.environ.get("OFFICE_PUBLISH_MESSAGE")
+    if env_status:
+        publish["status"] = env_status
+        publish["updated_at"] = now.isoformat()
+    if env_message:
+        publish["message"] = compact(env_message, 160)
+    return publish
 
 
 def human_age(delta: timedelta) -> str:
@@ -140,33 +239,17 @@ def latest_hermes_task(now: datetime) -> dict[str, str]:
     except Exception:
         return fallback
 
-    # Prefer explicit Agentis/Cline work because that is a concrete project task,
-    # not just the generic dashboard/presence task.
+    # Prefer known concrete categories over generic recent-message fallback.
     for role, content, _ts, title, _sid in rows:
-        hay = f"{title or ''}\n{content}".lower()
-        if any(k in hay for k in ["agentis", "cline2agent", ".clinerules", "workflows"]):
-            return {
-                "task_id": "agentis_update",
-                "task_title": "Agentis workflows 구조 업데이트",
-                "message": "Agentis 업데이트 반영중",
-                "space": "internal",
-            }
+        normalized = normalize_hermes_task(content, title)
+        if normalized and normalized["task_id"] not in {"latest_user_request", "session_maintenance"}:
+            return normalized
 
     for role, content, _ts, title, _sid in rows:
-        cleaned = compact(content)
-        if not cleaned:
-            continue
-        if cleaned.startswith("[CONTEXT COMPACTION") or cleaned.startswith("[IMPORTANT:"):
-            continue
-        if re.fullmatch(r"https?://\S+", cleaned):
-            continue
         if role == "user":
-            return {
-                "task_id": "latest_user_request",
-                "task_title": compact(cleaned, 42),
-                "message": "최근 요청 처리중",
-                "space": "business",
-            }
+            normalized = normalize_hermes_task(content, title)
+            if normalized:
+                return normalized
     return fallback
 
 
@@ -178,7 +261,7 @@ def main() -> None:
     claude_cli = matching_proc(lines, r"(/|\b)claude(\s|$).*\s-p(\s|$)")
     codex_terminal_open = matching_proc(lines, r"(/|\b)(codex|codex-cli)(\s|$)(?!.*mcp-server)")
     codex_available = matching_proc(lines, r"(/|\b)(codex|codex-cli)(\s|$).*(mcp-server)")
-    # 젬대리는 Gemini CLI가 아니라 Antigravity/Agy 작업자다. Browser profile / IDE / agy CLI 중 하나가 보이면 열린 상태로 표시한다.
+    # 젬대리는 Antigravity/Agy Research Lounge 작업자다. Browser profile / IDE / agy CLI 중 하나가 보이면 열린 상태로 표시한다.
     agy_open = matching_proc(lines, r"(/|\b)agy(\s|$)|Antigravity( IDE)?\.app|antigravity-browser-profile")
     server_active = bool(run(["/usr/sbin/lsof", "-nP", "-iTCP:8790", "-sTCP:LISTEN"]).strip())
     hermes_task = latest_hermes_task(now)
@@ -258,6 +341,13 @@ def main() -> None:
         "updated_at": now.isoformat(),
         "updated_at_kst": now.strftime("%Y-%m-%d %H:%M:%S KST"),
         "refresh_hint_seconds": 120,
+        "status_quality": {
+            "mode": "live",
+            "is_sample": False,
+            "generated_from": "mac-mini process state + local session metadata",
+            "stale_after_seconds": 300,
+        },
+        "publish": current_publish_status(now),
         "decision": decision,
         "reports": reports,
         "events": events,

@@ -51,3 +51,14 @@
 ### 검증
 - `curl -I` 로 localhost/LAN URL 모두 `200 OK` 확인.
 - 서버 프로세스 `*:8790 LISTEN` 확인.
+
+## 2026-06-15 — UI 상태 배지와 젬대리 표현 통일
+
+### 처리
+- `prototype/index-v3.html` 상단/하단에 실데이터·샘플 데이터·오래됨 상태가 보이도록 상태 배지를 추가.
+- 운영 화면의 데모 버튼은 기본 숨김 처리하고, `?dev=1`에서만 개발용 문구와 함께 표시하도록 변경.
+- 젬대리 정체성은 `Antigravity/Agy Research Lounge` 기준으로 문서 표현을 통일.
+
+### 결정
+- 젬대리 표기는 Antigravity/Agy Research Lounge를 기준으로 유지한다.
+- `scripts/update_office_status.py`는 이번 작업 범위에서 수정하지 않았다.

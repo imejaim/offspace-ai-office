@@ -20,9 +20,14 @@
 - 허사장/Hermes: 전체 설계, 업무분류, 상태 규칙, 보고
 - 코부장/Claude Code: 구현, 코드 구조, 캐릭터 SVG/애니메이션 연결
 - 오과장/Codex CLI: CLI 실행/검증/자동화 작업 발생 시 캐릭터 active
-- 젬대리/Gemini 또는 Agy CLI: 조사/요약/문서 작업 발생 시 캐릭터 active
+- 젬대리/Antigravity·Agy Research Lounge: 조사/요약/문서 작업 발생 시 캐릭터 active
 
 ## v3 목표
 - v2 디자인을 유지하면서 “상태 엔진”을 붙인다.
 - 화면 상단/우측 큐/캐릭터 말풍선이 같은 이벤트 데이터에서 나오게 한다.
 - 병렬 작업은 같은 캐릭터 분신으로 표현하고, 완료되면 사라지거나 본체로 합쳐진다.
+
+## 젬대리 정체성 기준
+- 젬대리는 `Antigravity/Agy Research Lounge` 담당자로 표기한다.
+- 새 문서/화면에서는 Antigravity/Agy 표현만 사용한다.
+- Research 공간의 상태 메시지는 조사·요약·문서 정리 역할을 중심으로 작성한다.

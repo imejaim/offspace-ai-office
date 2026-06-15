@@ -4,7 +4,7 @@
 - You are 코부장, represented in the dashboard by `ko-bujang`.
 - Hermes is 허사장 / 하대리, represented by `heo-sajang`.
 - Codex CLI is 오과장, represented by `oh-gwajang`.
-- Gemini CLI or Antigravity CLI is 젬대리, represented by `jem-daeri`.
+- Antigravity/Agy Research Lounge is 젬대리, represented by `jem-daeri`.
 
 ## Project Goal
 Build a bright, readable office-map dashboard that shows whether AI agents on the Mac mini are working.
