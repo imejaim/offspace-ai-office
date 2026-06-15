@@ -1,8 +1,20 @@
 {
   "source": "mac-mini-status-script",
-  "updated_at": "2026-06-15T16:55:34.764199+09:00",
-  "updated_at_kst": "2026-06-15 16:55:34 KST",
+  "updated_at": "2026-06-15T16:57:38.464266+09:00",
+  "updated_at_kst": "2026-06-15 16:57:38 KST",
   "refresh_hint_seconds": 120,
+  "status_quality": {
+    "mode": "live",
+    "is_sample": false,
+    "generated_from": "mac-mini process state + local session metadata",
+    "stale_after_seconds": 300
+  },
+  "publish": {
+    "status": "unknown",
+    "updated_at": null,
+    "message": "publish 상태 기록 없음",
+    "log_path": "/Users/offspace/.hermes/logs/office-status-publish.log"
+  },
   "decision": "대표님 결정 필요: Offspace 제품 우선순위 확정 / BaToo EC2 점검 승인",
   "reports": [
     {
@@ -15,7 +27,7 @@
     },
     {
       "area": "AI Office",
-      "summary": "현재 허사장 표시 작업: [Your active task list was preserved acro…"
+      "summary": "현재 허사장 표시 작업: AI Office 상태 신뢰도 개선"
     },
     {
       "area": "R&D / PHTML",
@@ -29,22 +41,22 @@
   "events": [
     {
       "event_id": "live_hermes",
-      "ts": "2026-06-15T16:55:34.848555+09:00",
+      "ts": "2026-06-15T16:57:38.549094+09:00",
       "source": "hermes-agent",
       "agent": "hermes",
       "character": "heo-sajang",
       "status": "active",
-      "space": "business",
-      "task_id": "latest_user_request",
-      "task_title": "[Your active task list was preserved acro…",
-      "message": "최근 요청 처리중",
+      "space": "internal",
+      "task_id": "offspace_ai_office",
+      "task_title": "AI Office 상태 신뢰도 개선",
+      "message": "AI Office 상태 갱신중",
       "clone_id": null,
       "progress": 0.8,
       "severity": "normal"
     },
     {
       "event_id": "live_claude",
-      "ts": "2026-06-15T16:55:34.848564+09:00",
+      "ts": "2026-06-15T16:57:38.549102+09:00",
       "source": "claude-code",
       "agent": "claude-code",
       "character": "ko-bujang",
@@ -59,7 +71,7 @@
     },
     {
       "event_id": "live_codex",
-      "ts": "2026-06-15T16:55:34.848566+09:00",
+      "ts": "2026-06-15T16:57:38.549104+09:00",
       "source": "codex-cli",
       "agent": "codex-cli",
       "character": "oh-gwajang",
@@ -74,7 +86,7 @@
     },
     {
       "event_id": "live_agy",
-      "ts": "2026-06-15T16:55:34.848568+09:00",
+      "ts": "2026-06-15T16:57:38.549105+09:00",
       "source": "antigravity/agy-cli",
       "agent": "agy-cli",
       "character": "jem-daeri",
@@ -89,7 +101,7 @@
     },
     {
       "event_id": "live_local_server",
-      "ts": "2026-06-15T16:55:34.848570+09:00",
+      "ts": "2026-06-15T16:57:38.549107+09:00",
       "source": "mac-mini",
       "agent": "python-http",
       "character": "heo-sajang",
