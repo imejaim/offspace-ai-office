@@ -1,7 +1,7 @@
 {
   "source": "mac-mini-status-script",
-  "updated_at": "2026-06-15T21:45:48.028592+09:00",
-  "updated_at_kst": "2026-06-15 21:45:48 KST",
+  "updated_at": "2026-06-15T21:48:07.186686+09:00",
+  "updated_at_kst": "2026-06-15 21:48:07 KST",
   "refresh_hint_seconds": 120,
   "status_quality": {
     "mode": "live",
@@ -11,7 +11,7 @@
   },
   "publish": {
     "status": "success",
-    "updated_at": "2026-06-15T21:43:39.826020+09:00",
+    "updated_at": "2026-06-15T21:45:58.975897+09:00",
     "message": "git push completed",
     "log_path": "/Users/offspace/.hermes/logs/office-status-publish.log"
   },
@@ -41,7 +41,7 @@
   "events": [
     {
       "event_id": "live_hermes",
-      "ts": "2026-06-15T21:45:56.117064+09:00",
+      "ts": "2026-06-15T21:48:07.266578+09:00",
       "source": "hermes-agent",
       "agent": "hermes",
       "character": "heo-sajang",
@@ -56,7 +56,7 @@
     },
     {
       "event_id": "live_claude",
-      "ts": "2026-06-15T21:45:56.117104+09:00",
+      "ts": "2026-06-15T21:48:07.266587+09:00",
       "source": "claude-code",
       "agent": "claude-code",
       "character": "ko-bujang",
@@ -71,7 +71,7 @@
     },
     {
       "event_id": "live_codex",
-      "ts": "2026-06-15T21:45:56.117111+09:00",
+      "ts": "2026-06-15T21:48:07.266589+09:00",
       "source": "codex-cli",
       "agent": "codex-cli",
       "character": "oh-gwajang",
@@ -86,7 +86,7 @@
     },
     {
       "event_id": "live_agy",
-      "ts": "2026-06-15T21:45:56.117116+09:00",
+      "ts": "2026-06-15T21:48:07.266591+09:00",
       "source": "antigravity/agy-cli",
       "agent": "agy-cli",
       "character": "jem-daeri",
@@ -97,6 +97,21 @@
       "message": "젬대리 Antigravity/Agy 열림 · 토큰 사용 감지 안됨",
       "clone_id": null,
       "progress": 0,
+      "severity": "normal"
+    },
+    {
+      "event_id": "live_local_server",
+      "ts": "2026-06-15T21:48:07.266592+09:00",
+      "source": "mac-mini",
+      "agent": "python-http",
+      "character": "heo-sajang",
+      "status": "parallel",
+      "space": "ops",
+      "task_id": "local_server",
+      "task_title": "로컬 서버",
+      "message": "사무실 LAN 서버 켜짐",
+      "clone_id": "LAN",
+      "progress": 1,
       "severity": "normal"
     }
   ]
