@@ -1,7 +1,7 @@
 {
   "source": "mac-mini-status-script",
-  "updated_at": "2026-06-16T15:30:12.998421+09:00",
-  "updated_at_kst": "2026-06-16 15:30:12 KST",
+  "updated_at": "2026-06-16T15:32:16.033789+09:00",
+  "updated_at_kst": "2026-06-16 15:32:16 KST",
   "refresh_hint_seconds": 120,
   "status_quality": {
     "mode": "live",
@@ -11,7 +11,7 @@
   },
   "publish": {
     "status": "success",
-    "updated_at": "2026-06-16T15:28:12.746404+09:00",
+    "updated_at": "2026-06-16T15:30:15.847288+09:00",
     "message": "git push completed",
     "log_path": "/Users/offspace/.hermes/logs/office-status-publish.log"
   },
@@ -41,7 +41,7 @@
   "events": [
     {
       "event_id": "live_hermes",
-      "ts": "2026-06-16T15:30:13.135806+09:00",
+      "ts": "2026-06-16T15:32:16.121402+09:00",
       "source": "hermes-agent",
       "agent": "hermes",
       "character": "heo-sajang",
@@ -56,22 +56,22 @@
     },
     {
       "event_id": "live_claude",
-      "ts": "2026-06-16T15:30:13.135816+09:00",
+      "ts": "2026-06-16T15:32:16.121411+09:00",
       "source": "claude-code",
       "agent": "claude-code",
       "character": "ko-bujang",
-      "status": "idle",
+      "status": "active",
       "space": "internal",
       "task_id": "claude_code",
       "task_title": "코부장 상태",
-      "message": "코부장 봇 대기",
+      "message": "코부장 CLI 작업중",
       "clone_id": null,
-      "progress": 0,
+      "progress": 0.55,
       "severity": "normal"
     },
     {
       "event_id": "live_codex",
-      "ts": "2026-06-16T15:30:13.135818+09:00",
+      "ts": "2026-06-16T15:32:16.121413+09:00",
       "source": "codex-cli",
       "agent": "codex-cli",
       "character": "oh-gwajang",
@@ -86,7 +86,7 @@
     },
     {
       "event_id": "live_agy",
-      "ts": "2026-06-16T15:30:13.135820+09:00",
+      "ts": "2026-06-16T15:32:16.121414+09:00",
       "source": "antigravity/agy-cli",
       "agent": "agy-cli",
       "character": "jem-daeri",
@@ -101,7 +101,7 @@
     },
     {
       "event_id": "live_local_server",
-      "ts": "2026-06-16T15:30:13.135821+09:00",
+      "ts": "2026-06-16T15:32:16.121416+09:00",
       "source": "mac-mini",
       "agent": "python-http",
       "character": "heo-sajang",
