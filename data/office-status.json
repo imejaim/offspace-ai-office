@@ -1,7 +1,7 @@
 {
   "source": "mac-mini-status-script",
-  "updated_at": "2026-06-18T01:25:20.045806+09:00",
-  "updated_at_kst": "2026-06-18 01:25:20 KST",
+  "updated_at": "2026-06-18T01:27:23.014728+09:00",
+  "updated_at_kst": "2026-06-18 01:27:23 KST",
   "refresh_hint_seconds": 120,
   "status_quality": {
     "mode": "live",
@@ -11,7 +11,7 @@
   },
   "publish": {
     "status": "success",
-    "updated_at": "2026-06-18T01:23:19.837002+09:00",
+    "updated_at": "2026-06-18T01:25:22.809039+09:00",
     "message": "git push completed",
     "log_path": "/Users/offspace/.hermes/logs/office-status-publish.log"
   },
@@ -41,7 +41,7 @@
   "events": [
     {
       "event_id": "live_hermes",
-      "ts": "2026-06-18T01:25:20.153316+09:00",
+      "ts": "2026-06-18T01:27:23.102242+09:00",
       "source": "hermes-agent",
       "agent": "hermes",
       "character": "heo-sajang",
@@ -56,7 +56,7 @@
     },
     {
       "event_id": "live_claude",
-      "ts": "2026-06-18T01:25:20.153332+09:00",
+      "ts": "2026-06-18T01:27:23.102252+09:00",
       "source": "claude-code",
       "agent": "claude-code",
       "character": "ko-bujang",
@@ -71,7 +71,7 @@
     },
     {
       "event_id": "live_codex",
-      "ts": "2026-06-18T01:25:20.153334+09:00",
+      "ts": "2026-06-18T01:27:23.102254+09:00",
       "source": "codex-cli",
       "agent": "codex-cli",
       "character": "oh-gwajang",
@@ -86,7 +86,7 @@
     },
     {
       "event_id": "live_agy",
-      "ts": "2026-06-18T01:25:20.153335+09:00",
+      "ts": "2026-06-18T01:27:23.102255+09:00",
       "source": "antigravity/agy-cli",
       "agent": "agy-cli",
       "character": "jem-daeri",
@@ -101,7 +101,7 @@
     },
     {
       "event_id": "live_local_server",
-      "ts": "2026-06-18T01:25:20.153337+09:00",
+      "ts": "2026-06-18T01:27:23.102257+09:00",
       "source": "mac-mini",
       "agent": "python-http",
       "character": "heo-sajang",
