@@ -1,7 +1,7 @@
 {
   "source": "mac-mini-status-script",
-  "updated_at": "2026-06-23T18:13:44.486298+09:00",
-  "updated_at_kst": "2026-06-23 18:13:44 KST",
+  "updated_at": "2026-06-23T18:16:02.955315+09:00",
+  "updated_at_kst": "2026-06-23 18:16:02 KST",
   "refresh_hint_seconds": 120,
   "status_quality": {
     "mode": "live",
@@ -10,9 +10,9 @@
     "stale_after_seconds": 300
   },
   "publish": {
-    "status": "success",
-    "updated_at": "2026-06-23T18:11:44.325648+09:00",
-    "message": "git push completed",
+    "status": "failed",
+    "updated_at": "2026-06-23T18:14:02.790035+09:00",
+    "message": "git push failed with exit 128; see /Users/offspace/.hermes/logs/office-status-publish.log",
     "log_path": "/Users/offspace/.hermes/logs/office-status-publish.log"
   },
   "decision": "대표님 결정 필요: Offspace 제품 우선순위 확정 / BaToo EC2 점검 승인",
@@ -41,7 +41,7 @@
   "events": [
     {
       "event_id": "live_hermes",
-      "ts": "2026-06-23T18:13:44.558901+09:00",
+      "ts": "2026-06-23T18:16:03.031998+09:00",
       "source": "hermes-agent",
       "agent": "hermes",
       "character": "heo-sajang",
@@ -56,7 +56,7 @@
     },
     {
       "event_id": "live_claude",
-      "ts": "2026-06-23T18:13:44.558909+09:00",
+      "ts": "2026-06-23T18:16:03.032007+09:00",
       "source": "claude-code",
       "agent": "claude-code",
       "character": "ko-bujang",
@@ -71,7 +71,7 @@
     },
     {
       "event_id": "live_codex",
-      "ts": "2026-06-23T18:13:44.558911+09:00",
+      "ts": "2026-06-23T18:16:03.032009+09:00",
       "source": "codex-cli",
       "agent": "codex-cli",
       "character": "oh-gwajang",
@@ -86,7 +86,7 @@
     },
     {
       "event_id": "live_agy",
-      "ts": "2026-06-23T18:13:44.558913+09:00",
+      "ts": "2026-06-23T18:16:03.032011+09:00",
       "source": "antigravity/agy-cli",
       "agent": "agy-cli",
       "character": "jem-daeri",
@@ -101,7 +101,7 @@
     },
     {
       "event_id": "live_local_server",
-      "ts": "2026-06-23T18:13:44.558914+09:00",
+      "ts": "2026-06-23T18:16:03.032013+09:00",
       "source": "mac-mini",
       "agent": "python-http",
       "character": "heo-sajang",
