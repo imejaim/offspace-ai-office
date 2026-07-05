@@ -42,6 +42,11 @@ if [ -n "$(/usr/bin/git status --porcelain -- data/office-status.json)" ]; then
     echo "$msg"
     log_publish "success" "$msg"
     record_publish_status "success" "$msg"
+    if [ -n "$(/usr/bin/git status --porcelain -- data/office-status.json)" ]; then
+      /usr/bin/git add data/office-status.json
+      /usr/bin/git commit -m "Record office publish status" || true
+      /usr/bin/git push >>"$push_output_file" 2>&1 || true
+    fi
   else
     status_code=$?
     msg="git push failed with exit $status_code; see $LOG_FILE"
