@@ -1,7 +1,7 @@
 {
   "source": "mac-mini-status-script",
-  "updated_at": "2026-07-13T11:00:07.376767+09:00",
-  "updated_at_kst": "2026-07-13 11:00:07 KST",
+  "updated_at": "2026-07-13T17:00:01.168812+09:00",
+  "updated_at_kst": "2026-07-13 17:00:01 KST",
   "refresh_hint_seconds": 120,
   "status_quality": {
     "mode": "live",
@@ -27,7 +27,7 @@
     },
     {
       "area": "AI Office",
-      "summary": "현재 허사장 표시 작업: Agentis workflows 구조 업데이트"
+      "summary": "현재 허사장 표시 작업: 사업보고/대시보드 관제"
     },
     {
       "area": "R&D / PHTML",
@@ -41,22 +41,22 @@
   "events": [
     {
       "event_id": "live_hermes",
-      "ts": "2026-07-13T11:00:07.480106+09:00",
+      "ts": "2026-07-13T17:00:01.362458+09:00",
       "source": "hermes-agent",
       "agent": "hermes",
       "character": "heo-sajang",
       "status": "active",
-      "space": "internal",
-      "task_id": "agentis_update",
-      "task_title": "Agentis workflows 구조 업데이트",
-      "message": "Agentis 업데이트 반영중",
+      "space": "business",
+      "task_id": "office_reporting",
+      "task_title": "사업보고/대시보드 관제",
+      "message": "허사장 관제중",
       "clone_id": null,
       "progress": 0.8,
       "severity": "normal"
     },
     {
       "event_id": "live_claude",
-      "ts": "2026-07-13T11:00:07.480123+09:00",
+      "ts": "2026-07-13T17:00:01.362474+09:00",
       "source": "claude-code",
       "agent": "claude-code",
       "character": "ko-bujang",
@@ -71,7 +71,7 @@
     },
     {
       "event_id": "live_codex",
-      "ts": "2026-07-13T11:00:07.480125+09:00",
+      "ts": "2026-07-13T17:00:01.362476+09:00",
       "source": "codex-cli",
       "agent": "codex-cli",
       "character": "oh-gwajang",
@@ -79,14 +79,14 @@
       "space": "ops",
       "task_id": "codex_cli",
       "task_title": "오과장 상태",
-      "message": "오과장 대기 · 마지막 토큰 3시간 전",
+      "message": "오과장 대기 · 마지막 토큰 9시간 전",
       "clone_id": null,
       "progress": 0,
       "severity": "normal"
     },
     {
       "event_id": "live_agy",
-      "ts": "2026-07-13T11:00:07.480127+09:00",
+      "ts": "2026-07-13T17:00:01.362478+09:00",
       "source": "antigravity/agy-cli",
       "agent": "agy-cli",
       "character": "jem-daeri",
@@ -101,7 +101,7 @@
     },
     {
       "event_id": "live_local_server",
-      "ts": "2026-07-13T11:00:07.480130+09:00",
+      "ts": "2026-07-13T17:00:01.362479+09:00",
       "source": "mac-mini",
       "agent": "python-http",
       "character": "heo-sajang",
