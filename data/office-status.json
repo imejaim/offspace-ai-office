@@ -1,7 +1,7 @@
 {
   "source": "mac-mini-status-script",
-  "updated_at": "2026-08-06T11:00:05.050034+09:00",
-  "updated_at_kst": "2026-08-06 11:00:05 KST",
+  "updated_at": "2026-08-06T17:00:01.293375+09:00",
+  "updated_at_kst": "2026-08-06 17:00:01 KST",
   "refresh_hint_seconds": 120,
   "status_quality": {
     "mode": "live",
@@ -41,7 +41,7 @@
   "events": [
     {
       "event_id": "live_hermes",
-      "ts": "2026-08-06T11:00:05.147804+09:00",
+      "ts": "2026-08-06T17:00:01.512491+09:00",
       "source": "hermes-agent",
       "agent": "hermes",
       "character": "heo-sajang",
@@ -56,7 +56,7 @@
     },
     {
       "event_id": "live_claude",
-      "ts": "2026-08-06T11:00:05.147813+09:00",
+      "ts": "2026-08-06T17:00:01.512501+09:00",
       "source": "claude-code",
       "agent": "claude-code",
       "character": "ko-bujang",
@@ -71,7 +71,7 @@
     },
     {
       "event_id": "live_codex",
-      "ts": "2026-08-06T11:00:05.147815+09:00",
+      "ts": "2026-08-06T17:00:01.512503+09:00",
       "source": "codex-cli",
       "agent": "codex-cli",
       "character": "oh-gwajang",
@@ -79,14 +79,14 @@
       "space": "ops",
       "task_id": "codex_cli",
       "task_title": "오과장 상태",
-      "message": "오과장 대기 · 마지막 토큰 2시간 전",
+      "message": "오과장 대기 · 마지막 토큰 8시간 전",
       "clone_id": null,
       "progress": 0,
       "severity": "normal"
     },
     {
       "event_id": "live_agy",
-      "ts": "2026-08-06T11:00:05.147816+09:00",
+      "ts": "2026-08-06T17:00:01.512504+09:00",
       "source": "antigravity/agy-cli",
       "agent": "agy-cli",
       "character": "jem-daeri",
@@ -101,7 +101,7 @@
     },
     {
       "event_id": "live_local_server",
-      "ts": "2026-08-06T11:00:05.147819+09:00",
+      "ts": "2026-08-06T17:00:01.512507+09:00",
       "source": "mac-mini",
       "agent": "python-http",
       "character": "heo-sajang",
