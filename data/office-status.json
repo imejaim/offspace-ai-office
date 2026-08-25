@@ -1,7 +1,7 @@
 {
   "source": "mac-mini-status-script",
-  "updated_at": "2026-08-25T17:00:07.996769+09:00",
-  "updated_at_kst": "2026-08-25 17:00:07 KST",
+  "updated_at": "2026-08-26T05:00:01.580956+09:00",
+  "updated_at_kst": "2026-08-26 05:00:01 KST",
   "refresh_hint_seconds": 120,
   "status_quality": {
     "mode": "live",
@@ -27,7 +27,7 @@
     },
     {
       "area": "AI Office",
-      "summary": "현재 허사장 표시 작업: Hermes 세션/컨텍스트 정리"
+      "summary": "현재 허사장 표시 작업: 사업보고/대시보드 관제"
     },
     {
       "area": "R&D / PHTML",
@@ -41,22 +41,22 @@
   "events": [
     {
       "event_id": "live_hermes",
-      "ts": "2026-08-25T17:00:08.164061+09:00",
+      "ts": "2026-08-26T05:00:01.825639+09:00",
       "source": "hermes-agent",
       "agent": "hermes",
       "character": "heo-sajang",
       "status": "active",
-      "space": "ops",
-      "task_id": "session_maintenance",
-      "task_title": "Hermes 세션/컨텍스트 정리",
-      "message": "세션 상태 정리중",
+      "space": "business",
+      "task_id": "office_reporting",
+      "task_title": "사업보고/대시보드 관제",
+      "message": "허사장 관제중",
       "clone_id": null,
       "progress": 0.8,
       "severity": "normal"
     },
     {
       "event_id": "live_claude",
-      "ts": "2026-08-25T17:00:08.164075+09:00",
+      "ts": "2026-08-26T05:00:01.825651+09:00",
       "source": "claude-code",
       "agent": "claude-code",
       "character": "ko-bujang",
@@ -71,7 +71,7 @@
     },
     {
       "event_id": "live_codex",
-      "ts": "2026-08-25T17:00:08.164076+09:00",
+      "ts": "2026-08-26T05:00:01.825653+09:00",
       "source": "codex-cli",
       "agent": "codex-cli",
       "character": "oh-gwajang",
@@ -86,7 +86,7 @@
     },
     {
       "event_id": "live_agy",
-      "ts": "2026-08-25T17:00:08.164078+09:00",
+      "ts": "2026-08-26T05:00:01.825654+09:00",
       "source": "antigravity/agy-cli",
       "agent": "agy-cli",
       "character": "jem-daeri",
@@ -101,7 +101,7 @@
     },
     {
       "event_id": "live_local_server",
-      "ts": "2026-08-25T17:00:08.164079+09:00",
+      "ts": "2026-08-26T05:00:01.825657+09:00",
       "source": "mac-mini",
       "agent": "python-http",
       "character": "heo-sajang",
