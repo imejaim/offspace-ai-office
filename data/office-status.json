@@ -1,7 +1,7 @@
 {
   "source": "mac-mini-status-script",
-  "updated_at": "2026-09-13T11:00:08.232978+09:00",
-  "updated_at_kst": "2026-09-13 11:00:08 KST",
+  "updated_at": "2026-09-13T17:00:03.769741+09:00",
+  "updated_at_kst": "2026-09-13 17:00:03 KST",
   "refresh_hint_seconds": 120,
   "status_quality": {
     "mode": "live",
@@ -41,7 +41,7 @@
   "events": [
     {
       "event_id": "live_hermes",
-      "ts": "2026-09-13T11:00:08.386661+09:00",
+      "ts": "2026-09-13T17:00:04.000718+09:00",
       "source": "hermes-agent",
       "agent": "hermes",
       "character": "heo-sajang",
@@ -56,7 +56,7 @@
     },
     {
       "event_id": "live_claude",
-      "ts": "2026-09-13T11:00:08.386669+09:00",
+      "ts": "2026-09-13T17:00:04.000729+09:00",
       "source": "claude-code",
       "agent": "claude-code",
       "character": "ko-bujang",
@@ -71,7 +71,7 @@
     },
     {
       "event_id": "live_codex",
-      "ts": "2026-09-13T11:00:08.386671+09:00",
+      "ts": "2026-09-13T17:00:04.000730+09:00",
       "source": "codex-cli",
       "agent": "codex-cli",
       "character": "oh-gwajang",
@@ -86,7 +86,7 @@
     },
     {
       "event_id": "live_agy",
-      "ts": "2026-09-13T11:00:08.386672+09:00",
+      "ts": "2026-09-13T17:00:04.000733+09:00",
       "source": "antigravity/agy-cli",
       "agent": "agy-cli",
       "character": "jem-daeri",
@@ -101,7 +101,7 @@
     },
     {
       "event_id": "live_local_server",
-      "ts": "2026-09-13T11:00:08.386676+09:00",
+      "ts": "2026-09-13T17:00:04.000735+09:00",
       "source": "mac-mini",
       "agent": "python-http",
       "character": "heo-sajang",
