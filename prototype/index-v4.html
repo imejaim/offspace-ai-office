@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f1f0e8">
+<meta name="description" content="작은 아이디어와 큰 가능성이 자라는 곳. Offspace의 여섯 업무 공간을 만나는 3D 가든 캠퍼스.">
+<title>Offspace — Garden Campus</title>
+<link rel="icon" href="../assets/characters/transparent/Heo-sajang.svg" type="image/svg+xml">
+<link rel="stylesheet" href="./v4/office.css">
+<script type="importmap">{"imports":{"three":"./v4/vendor/three.module.js"}}</script>
+</head>
+<body data-scene="loading">
+<a class="skip-link" href="#area-nav">업무 영역으로 바로 가기</a>
+<header class="masthead">
+ <a class="brand" href="./index-v4.html" aria-label="Offspace 사무실 홈"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 29 9.5v13L16 30 3 22.5v-13Z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="m3 9.5 13 8 13-8M16 17.5V30M9.5 5.8l13 8v12.4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>offspace<span class="brand-dot">.</span></span></a>
+ <div class="masthead-label">A PLACE FOR WHAT'S NEXT</div>
+ <button class="about-button" id="about-button" aria-haspopup="dialog">이 공간에 대하여 <span aria-hidden="true">↗</span></button>
+</header>
+<main class="world-shell" id="main">
+ <section class="welcome" aria-labelledby="page-title">
+  <p class="eyebrow"><span></span> OUR LITTLE WORLD · VOL. 04</p>
+  <h1 id="page-title">Garden<br><i>Campus.</i></h1>
+  <p class="welcome-copy">아이디어가 자라고,<br>좋아하는 일이 이어지는 곳.</p>
+  <span class="edition">OFFSPACE AI OFFICE</span>
+ </section>
+ <section class="stage" aria-label="회전하고 둘러볼 수 있는 3D 업무 캠퍼스">
+  <canvas id="campus" tabindex="0" aria-label="3D 캠퍼스. 드래그로 회전, 휠로 확대. 모든 업무는 아래 영역 버튼으로도 선택할 수 있습니다."></canvas>
+  <div class="loading-card" id="loading-card" role="status"><span class="loading-flower" aria-hidden="true">✳</span><p>사무실에 햇살을 들이는 중…</p></div>
+  <div class="fallback" id="fallback" hidden><span aria-hidden="true">⌂</span><h2>가벼운 사무실로 들어오셨어요.</h2><p>이 환경에서는 3D 화면을 열 수 없습니다.<br>아래 업무 영역과 링크는 그대로 이용할 수 있어요.</p></div>
+  <div class="scene-caption" aria-hidden="true"><span class="caption-line"></span> A SUNNY PLACE TO MAKE THINGS</div>
+ </section>
+ <nav id="area-nav" class="area-nav" aria-label="업무 영역"></nav>
+ <div class="team-wrap"><span class="team-caption">YOUR FAMILIAR FACES</span><div id="team" class="team" aria-label="사무실 안내 캐릭터"></div></div>
+ <div class="scene-tools" aria-label="화면 조작">
+  <button id="home-button" title="전체 캠퍼스 보기" aria-label="전체 캠퍼스 보기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v11h14V9M9 20v-7h6v7"/></svg></button>
+  <button id="motion-button" aria-pressed="false" title="움직임 줄이기" aria-label="움직임 줄이기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg></button>
+  <button id="explore-button" aria-pressed="false" title="키보드로 산책하기" aria-label="키보드로 산책하기"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="13" cy="4" r="2"/><path d="m7 12 4-5 4 4 4 1M11 7l-1 8-4 6m4-6 5 6M10 13l5 2v4"/></svg></button>
+ </div>
+ <aside id="detail-panel" class="detail-panel" aria-label="선택한 업무 영역" hidden tabindex="-1"></aside>
+ <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>
+</main>
+<footer class="footer">
+ <div class="footer-left"><span class="sun-icon" aria-hidden="true">☼</span><span>천천히 둘러보세요.</span><span class="interaction-hint">드래그로 회전 · 휠로 확대 · 공간을 눌러 방문</span></div>
+ <div class="footer-right"><span>공개 업무 디렉터리</span><span class="footer-separator">/</span><span id="reviewed-date">구성 확인 2026.09.29</span></div>
+</footer>
+<dialog id="about-dialog" aria-labelledby="about-title">
+ <button class="dialog-close" id="about-close" aria-label="설명 닫기">×</button>
+ <p class="eyebrow">WELCOME TO OFFSPACE</p><h2 id="about-title">우리의 일을 닮은<br>작은 세계.</h2>
+ <p>Mac mini의 여섯 업무 폴더와 디스코드의 업무 구분을 작은 캠퍼스로 옮겼습니다. 익숙한 네 캐릭터가 공간을 안내합니다.</p>
+ <p><strong>보이는 움직임은 공간 연출입니다.</strong> 에이전트가 실제로 일하고 있다는 표시가 아니며, 실행 상태·매출·잔고를 자동 수집하지 않습니다.</p>
+ <p>이 페이지는 누구나 볼 수 있는 공개 디렉터리입니다. 회사 문서, 가족 기록, 계좌 상세와 인증정보는 게시하지 않습니다. 폴더·채널명은 분류 안내이며 개인 컴퓨터나 디스코드를 직접 여는 링크가 아닙니다.</p>
+ <p class="reference-note">공간의 영감: Kamaboko’s Room · Bruno Simon (2019) · Summer Afternoon. 원작 에셋을 복제하지 않은 자체 제작 공간입니다.</p>
+</dialog>
+<noscript><section class="noscript"><h2>업무 바로가기</h2><p>3D 사무실은 JavaScript가 필요합니다.</p><a href="https://hidden-garden-review.pages.dev/">숨은정원</a> · <a href="https://un-myeong.pages.dev/">운명</a> · <a href="https://batoo-dashboard.asitis0310.workers.dev/">투자 대시보드</a></section></noscript>
+<script type="module" src="./v4/office.js"></script>
+</body>
+</html>

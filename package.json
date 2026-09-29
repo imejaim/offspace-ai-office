@@ -1,0 +1,12 @@
+{
+  "name": "offspace-ai-office",
+  "version": "4.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Offspace Garden Campus — self-hosted Three.js office",
+  "scripts": {
+    "test": "node --test tests/*.test.js prototype/v4/scene.test.mjs",
+    "serve": "python3 -m http.server 8791 --bind 127.0.0.1"
+  },
+  "dependencies": { "three": "0.180.0" }
+}
