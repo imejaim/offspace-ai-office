@@ -1,5 +1,5 @@
 // Deliberately curated public directory, not a feed of private files or agent activity.
-export const meta = Object.freeze({version:'4.0.0',reviewedAt:'2026-09-29',live:false,mode:'공개 업무 디렉터리'});
+export const meta = Object.freeze({version:'4.0.0',reviewedAt:'2026-10-02',live:false,mode:'공개 업무 디렉터리'});
 export const characters = Object.freeze([
  {id:'heo',name:'헤리',role:'전체 안내',file:'Heo-sajang.svg',color:'#dcaa88'},
  {id:'ko',name:'코부장',role:'설계와 검토',file:'Ko-bujang.svg',color:'#d89e72'},
@@ -7,10 +7,10 @@ export const characters = Object.freeze([
  {id:'jem',name:'젬대리',role:'조사와 발견',file:'Jem-daeri.svg',color:'#9a98c1'}
 ]);
 export const areas = Object.freeze([
- {id:'business',number:'01',name:'사업 스튜디오',english:'OFFSPACE STUDIO',short:'사업',color:'#b87754',folder:'01_Offspace_Business',channel:'offs_business',guide:'heo',description:'작은 아이디어가, 매일 쓰는 서비스가 되는 곳.',note:'제품을 눌러 공개 페이지를 열거나 업무 구분을 확인하세요. 심사·매출·이용자 수의 실시간 상태를 뜻하지 않습니다.',projects:[
+ {id:'business',number:'01',name:'사업 스튜디오',english:'OFFSPACE STUDIO',short:'사업',color:'#b87754',folder:'01_Offspace_Business',channel:'offs_business',guide:'heo',description:'작은 아이디어가, 매일 쓰는 서비스가 되는 곳.',note:'↗ 표시가 있는 카드를 누르면 공개 사이트가 새 탭에서 열립니다. 토스 전용 앱은 웹 바로가기가 없으며 심사·매출·이용자 수의 실시간 상태를 뜻하지 않습니다.',projects:[
   {name:'숨은정원',description:'발견하고 구조하는 작은 게임',label:'웹 프로토타입',url:'https://hidden-garden-review.pages.dev/'},
   {name:'1분 두뇌체조',description:'짧게 즐기는 매일의 두뇌 게임',label:'Apps in Toss'},
-  {name:'인터셉트',description:'내 관심사로 만나는 뉴스와 대화',label:'뉴스 서비스'},
+  {name:'인터셉트',description:'내 관심사로 만나는 뉴스와 대화',label:'뉴스 서비스',url:'https://interceptnews.app/'},
   {name:'운명',description:'나를 이해하는 개인화된 리딩',label:'웹 서비스',url:'https://un-myeong.pages.dev/'},
   {name:'오늘의 짝꿍',description:'오늘의 인연을 만나는 즐거움',label:'Apps in Toss'},
   {name:'오늘의 골프',description:'필드 밖에서도 이어지는 골프',label:'웹 서비스',url:'https://todays-golf.pages.dev/'}]},

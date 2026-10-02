@@ -95,7 +95,8 @@ function selectArea(id,{focus=true}={}) {
   if(project.url){content.href=project.url;content.target='_blank';content.rel='noopener noreferrer';content.setAttribute('aria-label',`${project.name} · 새 탭에서 열기`);}
   const name=el('strong','project-name',project.name);
   if(project.url) name.append(el('span','','↗'));
-  content.append(name,el('span','project-description',project.description),el('span','project-tag',project.label));
+  const tag=project.url ? `${project.label} · 새 탭에서 열기 ↗` : project.label;
+  content.append(name,el('span','project-description',project.description),el('span','project-tag',tag));
   item.append(content); list.append(item);
  }
  panel.append(list);

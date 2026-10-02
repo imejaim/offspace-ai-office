@@ -30,7 +30,22 @@ async def main():
     await page.locator('.close-panel').click()
    await page.locator('#area-nav [data-area="business"]').click()
    await page.wait_for_timeout(1600)
-   assert await page.locator('#detail-panel a[href="https://hidden-garden-review.pages.dev/"]').count()==1
+   business_urls=['https://interceptnews.app/','https://un-myeong.pages.dev/','https://hidden-garden-review.pages.dev/','https://todays-golf.pages.dev/']
+   assert await page.locator('#detail-panel a').count()==len(business_urls)
+   for url in business_urls:
+    link=page.locator('#detail-panel a[href="'+url+'"]')
+    assert await link.count()==1
+    assert await link.get_attribute('target')=='_blank'
+    assert 'noopener' in await link.get_attribute('rel')
+    assert '새 탭에서 열기' in await link.inner_text()
+   for url in business_urls[:2]:
+    async with page.expect_popup() as popup_info:
+     await page.locator('#detail-panel a[href="'+url+'"]').click()
+    popup=await popup_info.value
+    await popup.wait_for_load_state('domcontentloaded')
+    assert popup.url.startswith(url)
+    assert await popup.evaluate('window.opener === null')
+    await popup.close()
    await page.screenshot(path=str(OUT/(label+'-business.png')),full_page=True)
    await page.keyboard.press('Escape')
    assert not await page.locator('#detail-panel').is_visible()
