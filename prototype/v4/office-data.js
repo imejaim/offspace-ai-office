@@ -27,7 +27,8 @@ export const areas = Object.freeze([
  {id:'public',number:'05',name:'커뮤니티 홀',english:'COMMUNITY HALL',short:'대외활동',color:'#ba9859',folder:'05_Public_Professional_Engagement',channel:null,guide:'jem',description:'배운 것을 나누고, 새로운 관점을 만납니다.',note:'참여 영역만 소개합니다. 실제 일정·참석자·제출 자료는 공개하지 않습니다.',projects:[
   {name:'RAPA 멘토링',description:'경험을 나누는 멘토링 활동',label:'대외 활동'},
   {name:'KIEES 연구 활동',description:'함께 배우고 교류하는 연구',label:'전문 활동'}]},
- {id:'life',number:'06',name:'라이프 코티지',english:'LIFE COTTAGE',short:'생활',color:'#bc8b8c',folder:'06_Personal_Life',channel:'인생궁리',guide:'heo',description:'일 바깥의 시간이, 다시 일할 힘이 됩니다.',note:'가족 사진·건강·개인 일정은 연결하지 않은 비공개 영역입니다.',projects:[
+ {id:'life',number:'06',name:'라이프 코티지',english:'LIFE COTTAGE',short:'생활',color:'#bc8b8c',folder:'06_Personal_Life',channel:'인생궁리',guide:'heo',description:'일 바깥의 시간이, 다시 일할 힘이 됩니다.',note:'헤리만세력은 로그인 후 이용합니다. 가족 사진·건강·개인 일정은 이 사무실에 공개하지 않습니다.',projects:[
+  {name:'헤리만세력',description:'나를 살펴보는 개인 사주 달력',label:'개인 로그인',url:'https://heri-manse.asitis0310.workers.dev/'},
   {name:'가족 · 기록',description:'함께 만든 순간을 모으는 공간',label:'비공개'},
   {name:'취미 · 휴식',description:'좋아하는 것과 회복하는 시간',label:'비공개'}]}
 ]);
