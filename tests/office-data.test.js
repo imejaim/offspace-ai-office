@@ -33,7 +33,7 @@ test('life cottage has a login-only manse entry without publishing family detail
   const life = areas.find(a=>a.id==='life');
   const manse = life.projects.find(p=>p.name==='헤리만세력');
   assert.ok(manse, 'private manse entry is missing');
-  assert.match(manse.url, /^https:\/\/heri-manse\.[a-z0-9-]+\.workers\.dev\/$/);
+  assert.equal(manse.url, 'https://heri-manse.interceptnews.app/');
   assert.match(manse.label,/로그인/);
   assert.doesNotMatch(JSON.stringify(life),/password|생년월일|윤동호|강진영|127\.0\.0\.1|localhost|private_assets/);
 });

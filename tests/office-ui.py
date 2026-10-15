@@ -28,13 +28,14 @@ async def main():
     assert await page.locator('#detail-panel').get_attribute('data-area')==area
     assert await page.locator('#detail-panel h2').inner_text()
     if area=='life':
-     link=page.locator('#detail-panel a[href="https://heri-manse.asitis0310.workers.dev/"]')
+     link=page.locator('#detail-panel a[href="https://heri-manse.interceptnews.app/"]')
      assert await link.count()==1
      assert '개인 로그인' in await link.inner_text()
      async with page.expect_popup() as popup_info:
       await link.click()
      popup=await popup_info.value
      await popup.wait_for_load_state('domcontentloaded')
+     assert popup.url.startswith('https://heri-manse.interceptnews.app/')
      assert await popup.locator('input[name="password"]').count()==1
      assert await popup.locator('[data-profile-select]').count()==0
      await popup.close()
